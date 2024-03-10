@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>A Tale of Poop and Vengeance</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+<nav>
+
+</nav>
+<main>
+    <div id="left-pane">
+        <h1 class="header">
+            A Tale of Poop and Vengeance
+        </h1>
+        <div class="container-resource-panels">
+            <div id="panel-poop" class="resource-panel">
+                <h3 class="resource-title">The Pile</h3>
+                <p class="resource-description">Infinite, undiminishing poop.</p>
+                <img class="resource-icon" src="src/poop.svg" alt="poop">
+                <button class="resource-btn" id="btn-poop">Shovel</button>
+                <p class="resource-counter">Poop/click: 1</p>
+            </div>
+            <div id="panel-farm" class="resource-panel">
+                <h3 class="resource-title">Farm</h3>
+                <p class="resource-description">Poop-grown crops.</p>
+                <img class="resource-icon" src="src/farm.svg" alt="farm">
+                <button class="resource-btn" id="btn-farm">Buy for X Poop</button>
+                <p class="resource-counter">Owned: 1</p>
+            </div>
+            <div id="panel-pasture" class="resource-panel">
+                <h3 class="resource-title">Pasture</h3>
+                <p class="resource-description">A source of meat.</p>
+                <img class="resource-icon" src="src/pasture.svg" alt="pasture">
+                <button class="resource-btn" id="btn-pasture">Buy for X Crops</button>
+                <p class="resource-counter">Owned: 1</p>
+            </div>
+            <div id="panel-dragon" class="resource-panel">
+                <h3 class="resource-title" id="title-dragon">Hatchling</h3>
+                <p class="resource-description">It's but a wee hatchling.</p>
+                <img class="resource-icon" src="src/dragon-1.svg" alt="dragon">
+                <button class="resource-btn" id="btn-dragon">Feed for X Meat</button>
+                <p class="resource-counter">Size: 1</p>
+            </div>
+        </div>
+        <div class="container-resource-counters">
+            <div class="resource-counter">
+                <p class="resource-name">Poop: 0</p>
+                <p class="resource-per-sec"></p>
+            </div>
+            <div class="resource-counter">
+                <p class="resource-name">Crops: 0</p>
+                <p class="resource-per-sec">Crops/sec: 0</p>
+            </div>
+            <div class="resource-counter">
+                <p class="resource-name">Meat: 0</p>
+                <p class="resource-per-sec">Meat/sec: 0</p>
+            </div>
+            <div class="resource-counter">
+                <p class="resource-name">Mana: 0</p>
+                <p class="resource-per-sec">Mana/sec: 0</p>
+            </div>
+        </div>
+    </div>
+    <div id="right-pane">
+        <div class="info-panel">
+            <h3 class="label-heading">Log</h3>
+            <div></div>
+        </div>
+        <div class="info-panel">
+            <h3 class="label-heading">Upgrades</h3>
+            <div></div>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>
