@@ -43,12 +43,24 @@ img, picture, svg, video {
 
 .container-resource-panels{
     grid-template-columns: 1fr 1fr;
-    column-gap: 4em;
-    row-gap: 4em;
+    column-gap: 2em;
+    row-gap: 2em;
+}
+
+.resource-panel {
+    width: 400px;
+    height: 250px;
+    border-radius: 25px;
+    box-shadow: 8px 8px 4px rgba(0,0,0,20%);
+    text-align: center;
+}
+
+.resource-icon, .resource-btn {
+    margin: auto;
 }
 
 .resource-icon {
-    width: 64px;
+    width: 100px;
 }
 
 .resource-btn {
