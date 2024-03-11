@@ -1,5 +1,51 @@
+/* makes sizing simpler */
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
 
+/* remove default spacing */
+/* force styling of type through styling, rather than elements */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* dark mode user-agent-styles */
+
+/*html {*/
+/*    color-scheme: dark light;*/
+/*}*/
+
+/* min body height */
+
+body {
+    min-height: 100vh;
+}
+
+/* responsive images/videos */
+img, picture, svg, video {
+    display: block;
+    max-width: 100%;
+}
+
+/*CUSTOM CSS STARTS HERE*/
+
+.grid{
+    display: grid;
+}
+
+.main{
+    grid-template-columns: 3fr 2fr;
+}
+
+.container-resource-panels{
+    grid-template-columns: 1fr 1fr;
+    column-gap: 4em;
+    row-gap: 4em;
+}
 
 .resource-icon {
     width: 64px;
@@ -7,4 +53,8 @@
 
 .resource-btn {
     display: block;
+}
+
+.container-resource-counters{
+    grid-template-columns: 1fr 1fr;
 }
