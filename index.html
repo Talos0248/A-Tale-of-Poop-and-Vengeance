@@ -7,73 +7,94 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>A Tale of Poop and Vengeance</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Madimi+One&family=Pacifico&family=Shadows+Into+Light&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&family=Protest+Revolution&family=Righteous&display=swap" rel="stylesheet">
+
 </head>
 <body>
 <nav>
     <img src="" alt="">
 </nav>
+<header>
+    <h1 class="title">
+        A Tale of <span class="text-poop">Poop</span> and <span class="text-vengeance">Vengeance</span>
+    </h1>
+</header>
 <main class="grid main">
+
     <div id="left-pane">
-        <h1 class="header">
-            A Tale of Poop and Vengeance
-        </h1>
         <div class="grid container-resource-panels">
-            <div id="panel-poop" class="resource-panel">
-                <h3 class="resource-title">The Pile</h3>
+            <div id="panel-poop" class="resource-panel panel-poop">
+                <h3 class="resource-title resource-title-poop">The Pile</h3>
                 <p class="resource-description">Infinite, undiminishing poop.</p>
                 <img class="resource-icon" src="src/poop.svg" alt="poop">
-                <button class="resource-btn" id="btn-poop">Shovel</button>
+                <button class="resource-btn poop-color" id="btn-poop">Shovel</button>
                 <p class="resource-counter">Poop/click: 1</p>
             </div>
-            <div id="panel-farm" class="resource-panel">
+            <div id="panel-farm" class="resource-panel panel-farm">
                 <h3 class="resource-title">Farm</h3>
                 <p class="resource-description">Poop-grown crops.</p>
                 <img class="resource-icon" src="src/farm.svg" alt="farm">
-                <button class="resource-btn" id="btn-farm">Buy for X Poop</button>
+                <button class="resource-btn farm-color" id="btn-farm">Buy for X Poop</button>
                 <p class="resource-counter">Owned: 1</p>
             </div>
-            <div id="panel-pasture" class="resource-panel">
+            <div id="panel-pasture" class="resource-panel panel-pasture">
                 <h3 class="resource-title">Pasture</h3>
                 <p class="resource-description">A source of meat.</p>
                 <img class="resource-icon" src="src/pasture.svg" alt="pasture">
-                <button class="resource-btn" id="btn-pasture">Buy for X Crops</button>
+                <button class="resource-btn pasture-color" id="btn-pasture">Buy for X Crops</button>
                 <p class="resource-counter">Owned: 1</p>
             </div>
-            <div id="panel-dragon" class="resource-panel">
-                <h3 class="resource-title" id="title-dragon">Hatchling</h3>
+            <div id="panel-dragon" class="resource-panel panel-dragon">
+                <h3 class="resource-title resource-title-dragon" id="title-dragon">Hatchling</h3>
                 <p class="resource-description">It's but a wee hatchling.</p>
                 <img class="resource-icon" src="src/dragon-1.svg" alt="dragon">
-                <button class="resource-btn" id="btn-dragon">Feed for X Meat</button>
+                <button class="resource-btn dragon-color" id="btn-dragon">Feed for X Meat</button>
                 <p class="resource-counter">Size: 1</p>
             </div>
         </div>
-        <div class="grid container-resource-counters">
-            <div class="resource-counter">
-                <p class="resource-name" id="ctr-poop">Poop: 0</p>
-                <p class="resource-per-sec"></p>
+        <div class="grid container-resource-storage">
+            <div class="resource-storage">
+                <p class="resource-name ctr-poop" id="ctr-poop">Poop: 0</p>
+                <p class="resource-per-sec ctr-poop-per-sec"></p>
             </div>
-            <div class="resource-counter">
-                <p class="resource-name" id="ctr-crops">Crops: 0</p>
-                <p class="resource-per-sec">Crops/sec: 0</p>
+            <div class="resource-storage">
+                <p class="resource-name ctr-crops" id="ctr-crops">Crops: 0</p>
+                <p class="resource-per-sec ctr-crops-per-sec">Crops/sec: 0</p>
             </div>
-            <div class="resource-counter" id="ctr-meat">
-                <p class="resource-name">Meat: 0</p>
-                <p class="resource-per-sec">Meat/sec: 0</p>
+            <div class="resource-storage" id="ctr-meat">
+                <p class="resource-name ctr-meat">Meat: 0</p>
+                <p class="resource-per-sec ctr-meat-per-sec">Meat/sec: 0</p>
             </div>
-            <div class="resource-counter" id="ctr-dragon">
-                <p class="resource-name">Mana: 0</p>
-                <p class="resource-per-sec">Mana/sec: 0</p>
+            <div class="resource-storage" id="ctr-mana">
+                <p class="resource-name ctr-mana">Mana: 0</p>
+                <p class="resource-per-sec ctr-mana-per-sec">Mana/sec: 0</p>
             </div>
         </div>
     </div>
     <div id="right-pane">
-        <div class="info-panel">
-            <h3 class="label-heading">Log</h3>
-            <div></div>
-        </div>
+<!--        <div class="info-panel">-->
+<!--            <h3 class="label-heading">Log</h3>-->
+<!--            <div class="container-log"></div>-->
+<!--        </div>-->
         <div class="info-panel">
             <h3 class="label-heading">Upgrades</h3>
-            <div></div>
+            <div class="container-upgrades"></div>
+        </div>
+    </div>
+    <div id="alert-popup" class="alert-popup hidden">
+        <div id="alert-background" class="alert-background"></div>
+        <div id="alert-panel" class="alert-panel">
+            <h1 id="alert-title" class="alert-title">You Are a Poop Scooper</h1>
+            <div id="alert-content" class="alert-content">
+                <p>You are a poop scooper, an occupation reserved for the lowest rung of society...</p>
+                <p>...as was your father, and the father of your father, and all of his ancestors before. Destiny is not a choice in these lands; you were born into this profession, dealt this cruel hand at birth.</p>
+            </div>
+            <button id="alert-btn" class="alert-btn">
+                <span class="alert-btn-title" id="alert-btn-title">Get Shoveling</span>
+                <span class="alert-btn-description" id="alert-btn-description">Gotta scoop some poop.</span>
+            </button>
         </div>
     </div>
 </main>
