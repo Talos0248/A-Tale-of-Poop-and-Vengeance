@@ -33,49 +33,49 @@ img, picture, svg, video {
 }
 
 
-
 /*CUSTOM CSS STARTS HERE*/
 /*UTILITY CLASSES*/
-.grid{
+.grid {
     display: grid;
 }
 
-.col-span-2{
+.col-span-2 {
     grid-column: span 2;
 }
 
-.hidden{
+.hidden {
     display: none;
 }
 
 /*BUTTON HOVERS*/
-.alert-btn:hover, .resource-btn:hover{
+.alert-btn:hover, .resource-btn:hover {
     filter: brightness(85%);
 }
+
 /*PROJECT STYLING*/
 /*MAIN CONTAINER*/
-.main{
+.main {
     grid-template-columns: 3fr 2fr;
     column-gap: 5%;
     max-width: min(80%, 1600px);
     margin: auto;
 }
 
-.title{
+.title {
     text-align: center;
     margin: 20px auto;
     font-size: 38px;
     font-family: "Shadows Into Light", sans-serif;
 }
 
-.text-poop{
+.text-poop {
     color: #c09965;
     font-size: 42px;
     -webkit-text-stroke: thin #826034;
     font-family: "Madimi One", sans-serif;
 }
 
-.text-vengeance{
+.text-vengeance {
     color: #8B0000;
     text-shadow: 0 0 10px #ff7b89;
     font-size: 42px;
@@ -84,7 +84,7 @@ img, picture, svg, video {
 
 /*PANELS*/
 
-.container-resource-panels{
+.container-resource-panels {
     height: max(500px, 70%);
     grid-template-columns: 1fr 1fr;
     /*column-gap: 2em;*/
@@ -98,7 +98,7 @@ img, picture, svg, video {
     height: 240px;
     position: relative; /* For positioning the counter at the bottom right*/
     border-radius: 25px;
-    box-shadow: 8px 8px 4px rgba(0,0,0,20%);
+    box-shadow: 8px 8px 4px rgba(0, 0, 0, 20%);
     text-align: center;
     margin: 10px 20px;
     padding: 10px;
@@ -120,7 +120,7 @@ img, picture, svg, video {
     font-size: 14px;
 }
 
-.resource-counter{
+.resource-counter {
     position: absolute;
     bottom: 5px;
     right: 5px;
@@ -144,7 +144,7 @@ img, picture, svg, video {
     color: #826034;
 }
 
-.poop-color{
+.poop-color {
     background-color: #826034;
 }
 
@@ -159,11 +159,11 @@ img, picture, svg, video {
 
 .panel-farm .resource-title,
 .panel-farm .resource-description,
-.ctr-crops-per-sec{
+.ctr-crops-per-sec {
     color: #006400;
 }
 
-.farm-color{
+.farm-color {
     background-color: #006400;
 }
 
@@ -184,7 +184,7 @@ img, picture, svg, video {
     color: #8B0000;
 }
 
-.pasture-color{
+.pasture-color {
     background-color: #8B0000;
 }
 
@@ -199,11 +199,11 @@ img, picture, svg, video {
 
 .panel-dragon .resource-title,
 .panel-dragon .resource-description,
-.ctr-mana-per-sec{
+.ctr-mana-per-sec {
     color: #203887;
 }
 
-.dragon-color{
+.dragon-color {
     background-color: #203887;
 }
 
@@ -213,7 +213,7 @@ img, picture, svg, video {
 
 /*RESOURCE STORAGE*/
 
-.container-resource-storage{
+.container-resource-storage {
     grid-template-columns: 1fr 1fr;
     margin-top: 20px;
     column-gap: 50px;
@@ -227,30 +227,41 @@ img, picture, svg, video {
 }
 
 /*LOG AND UPGRADES*/
-.container-log, .container-upgrades{
-    background-color: rgba(255, 255, 255, 0.69);
-    border-radius: 10px;
+.info-panel {
+    text-align: center;
 }
 
-.container-log{
+/*.container-log, .container-upgrades {*/
+/*    background-color: rgba(255, 255, 255, 0.69);*/
+/*    border-radius: 10px;*/
+/*}*/
+
+.container-log {
     height: 250px;
 }
 
-.container-upgrades{
+.container-upgrades {
     height: 400px;
 }
 
+.upgrades-header {
+    font-size: 24px;
+    font-family: "Courier New", sans-serif;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
 /*ALERT PANEL*/
-.alert-background{
-    background-color: rgba(0,0,0,69%);
+.alert-background {
+    background-color: rgba(0, 0, 0, 69%);
     width: 100%;
     height: 100%;
     position: fixed;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
 }
 
-.alert-panel{
+.alert-panel {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -259,19 +270,19 @@ img, picture, svg, video {
     transform: translate(-50%, -50%);
 
     border-radius: 25px;
-    box-shadow: 8px 8px 4px rgba(0,0,0,20%);
+    box-shadow: 8px 8px 4px rgba(0, 0, 0, 20%);
     background-color: #ffffff;
 
     text-align: center;
     font-family: "Open Sans", serif;
 }
 
-.alert-title{
+.alert-title {
     font-size: 30px;
     margin: 15px 0;
 }
 
-.alert-content{
+.alert-content {
     margin: auto;
     padding: 0 5%;
     font-size: 20px;
@@ -282,11 +293,12 @@ img, picture, svg, video {
     max-width: 1200px;
 }
 
-.alert-content p{
-    margin-bottom: 10px;
+.alert-content p {
+    margin-bottom: 15px;
+    line-height: 1.6;
 }
 
-.alert-btn{
+.alert-btn {
     width: max(40%, 250px);
     height: 50px;
     margin: 30px auto;
@@ -295,14 +307,14 @@ img, picture, svg, video {
     background-color: #826034;
 }
 
-.alert-btn-title, .alert-btn-description{
+.alert-btn-title, .alert-btn-description {
     display: block;
     color: white;
 }
 
-.alert-btn-title{
+.alert-btn-title {
     font-weight: bolder;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 /*SWITCHABLE BACKGROUNDS*/
@@ -310,11 +322,9 @@ html {
     --s: 70px; /* control the size */
     --c: #f3d3bc;
 
-    --_l: #0000 46%,var(--c) 47% 53%,#0000 54%;
-    background:
-            radial-gradient(100% 100% at 100% 100%,var(--_l)) var(--s) var(--s),
-            radial-gradient(100% 100% at 0    0   ,var(--_l)) var(--s) var(--s),
-            radial-gradient(100% 100%,#0000 22%,var(--c) 23% 29%, #0000 30% 34%,var(--c) 35% 41%,#0000 42%)
-            #F8ECC9;
-    background-size: calc(var(--s)*2) calc(var(--s)*2);
+    --_l: #0000 46%, var(--c) 47% 53%, #0000 54%;
+    background: radial-gradient(100% 100% at 100% 100%, var(--_l)) var(--s) var(--s),
+    radial-gradient(100% 100% at 0 0, var(--_l)) var(--s) var(--s),
+    radial-gradient(100% 100%, #0000 22%, var(--c) 23% 29%, #0000 30% 34%, var(--c) 35% 41%, #0000 42%) #F8ECC9;
+    background-size: calc(var(--s) * 2) calc(var(--s) * 2);
 }
