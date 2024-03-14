@@ -4,7 +4,7 @@ let stories = {
         "resolved": false,
         "title": "The Humble Waste Collector",
         "content": "<p>You are a poop scooper, an occupation reserved for the lowest rung of society...</p>" +
-            "<p>...as was your father, and the father of your father, and all of his ancestors before. Destiny is not a choice in these lands; you were born into this profession, dealt this cruel hand at birth.</p>",
+            "<p>...as were your father, and the father of your father, and all of his ancestors before. Destiny is not a choice in these lands; you were born into this profession, dealt this cruel hand at birth.</p>",
         "btnTitle": "Get Shoveling",
         "btnDesc": "Gotta scoop some poop."
     },
@@ -28,10 +28,93 @@ let stories = {
         "resolved": false,
         "title": "A Seedy Discovery",
         "content": "<p>You shovel, and shovel, and shovel, until something inside you snaps.</p>" +
-            "<p>You've had enough of this life, enough of being treated like dirt beneath someone else's boot. With a roar of frustration, you hurl the scoop aside, its metal tip plunging straight down into the muck. You want out. But then your emotions settle, and you come to the same realization you've had countless times before: What other choice do you have?</p>" +
+            "<p>You've had enough of this life, enough of being treated like dirt beneath someone else's boot. With a roar of frustration, you hurl the scoop aside, its metal tip plunging straight down into the muck. You want out. But then your emotions settle, and you come to the same realization you've had countless times before:</p>" +
+            "<p><em><b>What other choice do you have?</b></em></p>" +
             "<p>You bend to retrieve your shovel, when suddenly, you spot something nestled amongst the rot and decay. A verdant seedling, barely a green speck, sprouting from the muck. Truly a curious sight — in your decades of toil and labor, not even the hardiest crop could survive in this wasteland of grime and sludge, and yet this plant seems healthy and unbothered.</p>",
         "btnTitle": "Cultivate the Seedling",
         "btnDesc": "You can now build Farms!"
+    },
+    "story5": {
+        "resolved": false,
+        "title": "The First Harvest",
+        "content": "<p>The plants thrive under your care and soon bear fruit; in no time, you've cultivated enough for a full harvest. Plump, succulent, and iridescent blue, the orbs feel heavy in your hand. You ponder the taste, contemplating if you should consider eating it. Figuring it would be a disservice to your efforts otherwise, you tentatively bite into the flesh, and immediately you are overwhelmed by an invigorating sweetness.</p>",
+        "btnTitle": "Consume the Whole Fruit",
+        "btnDesc": "+15 Poop per Second"
+    },
+    "story6": {
+        "resolved": false,
+        "title": "Fuzzy, Furry Nuisances",
+        "content": "<p>On one particular evening of trudging through the expanse of your farm, you come across a trail of half-eaten fruit, many of them low hanging. Must be the work of Wildergraze. These lean, agile creatures used to survive on whatever scraps of vegetation they could find. They left a long time ago after turning these grounds barren, but it seems your crops have attracted their presence once more.</p>",
+        "btnTitle": "Damned Wildergraze!",
+        "btnDesc": "-400 Crops"
+    },
+    "story7": {
+        "resolved": false,
+        "title": "Steak!",
+        "content": "<p>Another sunrise, another day of labor. You trudge through the mud, when something catches your eye: a Wildergraze, fattened with a belly full of fruit, fast asleep in an inconspicuous corner of your farm. Easy prey. Swiftly, you retrieve your crude bow and makeshift arrows — with a bit of luck, you might finally have meat on the dinner table after months of gruel and fruit. Your draw your bowstring and take aim, yet just before your fingers release, an idea crosses your mind. Back then, food was scarce, and devoting precious resources to taming wild beasts was a luxury you couldn't afford, yet now, with the abundance of the blue, magical fruit...</p>",
+        "btnTitle": "Domesticate the Wildergraze",
+        "btnDesc": "You can now build Pastures!"
+    },
+    "story8": {
+        "resolved": false,
+        "title": "A Helping Hand",
+        "content": "<p>Crop harvests are abundant, and the Wildergraze are thriving. Word of your success spreads like wildfire through the nearby villages, whispers of admiration mingling with the morning mist. As you tend to your farm, you notice a lone figure approaching you. A villager.</p>" +
+            "<p><i>Excuse me,</i> they say, followed by a humble request to work on your farm. They're tired of the meager rations the council provides, longing for something more substantial to sustain themselves and their family.</p>",
+        "btnTitle": "Keep the Request in Mind",
+        "btnDesc": "You can now Hire Villagers!"
+    },
+    "story9": {
+        "resolved": false,
+        "title": "Disaster has Struck",
+        "content": "<p>The first hint of dawn had yet to break when you are jolted awake by the acrid scent of smoke. You rush to the window of your humble shack, to be met with chaos unfolding before your eyes. An inferno.</p>" +
+            "<p>It's your farm. Your life's work, the source of your sustenance, the very thing that has given you purpose and hope. It's all going up in flames. With trembling hands you sprint outside, desperate to quench the fire, but the battle is already lost. Fields that had once teemed with life, now reduced to smoldering embers; pastures of your beloved Wildergraze are now consumed by flames. At first, you thought it was an accident — a tragic twist of fate that had reduced your hard-earned success to ash and ruin. But then you found it: a small slip of parchment on the doorstep by your feet, adorned with the official seal of the ruling council.</p>",
+        "btnTitle": "\"Know Your Place\"",
+        "btnDesc": "Lose Everything"
+    },
+    "story10": {
+        "resolved": false,
+        "title": "A Tiny, Ferocious Cry",
+        "content": "<p>With a heavy heart, you return to the life of a poop scooper. Days pass since the devastating fire tore through your farm, each step home a painful reminder of all that had been lost as you wandered past the ashes. But, today, amidst the desolation, you catch a glimmer of movement. There, nestled within the ashes and embers, lies a small, fragile creature, its scales shimmering like molten gold in the dim light of dawn. As you approach, it raises its head defiantly, tiny jaws snapping and claws scrabbling as it tries to ward you off.</p>",
+        "btnTitle": "Offer it Some Meat",
+        "btnDesc": "You now Own a Baby Dragon!"
+    },
+    "story11": {
+        "resolved": false,
+        "title": "Hungry Hungry Hellfire",
+        "content": "<p>You watch with a mixture of awe as the baby dragon in your care grows at an astonishing rate, but as the dragon's appetite balloons, so too does your worry. The stockpile of leftover meat you have left is quickly dwindling, and you know that you'll need a more sustainable solution to feed the ravenous creature.</p>" +
+            "<p>Unwilling to abandon the newborn hatchling and seeing no other option, you make the difficult decision to restart your ventures into farming and pasturing despite knowing the risks.</p>",
+        "btnTitle": `Do it for Your Dragon`,
+        "btnDesc": "Farms and pastures unlocked (again)!"
+    },
+    "story12": {
+        "resolved": false,
+        "title": "Mystical Winds",
+        "content": "<p>One crisp evening, as you go about your chores on the farm, you notice the dragon trailing behind you with a curious expression, having taken to following you around lately. This time, you feel a strange tingling sensation in the air — a subtle shift in the surrounding energies, with your dragon as its apparent source. You glance over at them just in time to catch them flapping their wings, the gentle breeze washing over your crops in a subtle, otherworldly light, causing fruits to ripen right before your eyes.</p>",
+        "btnTitle": "Magic!",
+        "btnDesc": "Your Dragon now Produces Mana!"
+    },
+    "story13": {
+        "resolved": false,
+        "title": "Unwelcomed Guests",
+        "content": "<p>As the sun dips low on the horizon, a sense of unease settles over you. You've heard whispers in the nearby village — rumors of officials planning to pay you a visit with far-from-friendly intentions. Sure enough, as dusk falls, the clattering of iron boots on muck draw near, consequences of your defiance. With a thunderous crash, the soldiers kick down your door of your humble abode, armored forms silhouetted against the fading light.</p>" +
+            "<p>They've come for you.</p>",
+        "btnTitle": "Unleash your Dragon",
+        "btnDesc": "+500 Meat"
+    },
+    "story14": {
+        "resolved": false,
+        "title": "Army on the Horizon",
+        "content": "<p>With no word coming from the soldiers who have been dispatched to confront you, The ruling council grows increasingly impatient, deciding to take matters into their own hands. A larger, more formidable army looms beyond the horizon, marching in lockstep, their weapons glinting ominously under the full moon.</p>" +
+            "<p>Still, they're no match for your dragon's fury.</p>",
+        "btnTitle": "Fools.",
+        "btnDesc": "+5000 Meat"
+    },
+    "story15": {
+        "resolved": false,
+        "title": "A Storm is Brewing",
+        "content": "<p>Word of your dragon's immense size and strength spread quickly throughout the region, reaching even the ears of the ruling council. A threat, no doubt, to their authority and control. Determined to maintain their grip on power, the council convened, a plot to quash any rebellion fast in the making, schemes devised and bounties placed to eradicate both you and the dragon.</p>",
+        "btnTitle": "Mount a Counteroffensive",
+        "btnDesc": "Wiser to Strike First"
     }
 }
 
@@ -40,6 +123,8 @@ const poopPanel = document.getElementById("panel-poop")
 const farmPanel = document.getElementById("panel-farm")
 const pasturePanel = document.getElementById("panel-pasture")
 const dragonPanel = document.getElementById("panel-dragon")
+
+const farmDescription = document.getElementById("description-farm")
 
 const poopBtn = document.getElementById("btn-poop")
 const poopPerClickCtr = document.getElementById("building-ctr-poop")
@@ -70,6 +155,8 @@ const alertBtn = document.getElementById("alert-btn")
 const alertBtnTitle = document.getElementById("alert-btn-title")
 const alertBtnDesc = document.getElementById("alert-btn-description")
 
+const upgradesContainer = document.getElementById("container-upgrades")
+
 const poopColor = "#8B4513"
 const farmColor = "#006400"
 const pastureColor = "#8B0000"
@@ -82,16 +169,22 @@ let paused = false
 let poop = 0
 let poopMultiplier = 1
 let poopPerClick = 1
+
 let farms = 0
 let crops = 0
+let cropsBaseProduction = 1
 let cropMultiplier = 1
 let cropsPerSecond = 0
+
 let pastures = 0
 let meat = 0
+let meatBaseProduction = 1
 let meatMultiplier = 1
 let meatPerSecond = 0
+
 let dragonSize = 1
 let mana = 0
+let manaBaseProduction = 1
 let manaMultiplier = 1
 let manaPerSecond = 0
 
@@ -138,6 +231,8 @@ function generateAlertPopup(title, content, btnTitle, btnDesc, color) {
     alertPopup.classList.remove("hidden")
 }
 
+// ALERT POPUP HANDLING
+
 function generateStoryPopup(targetStory, color) {
     let story = stories[targetStory]
     generateAlertPopup(story["title"], story["content"], story["btnTitle"], story["btnDesc"], color)
@@ -156,6 +251,12 @@ function triggerStories() {
     } else if (!stories["story4"]["resolved"] && poop >= 500) {
         currentStory = "story4"
         generateStoryPopup(currentStory, farmColor)
+    } else if (!stories["story5"]["resolved"] && crops >= 200) {
+        currentStory = "story5"
+        generateStoryPopup(currentStory, farmColor)
+    } else if (!stories["story6"]["resolved"] && crops >= 800) {
+        currentStory = "story6"
+        generateStoryPopup(currentStory, farmColor)
     }
 }
 
@@ -173,6 +274,13 @@ function resolveStoryStates() {
         poopPanel.classList.remove("col-span-2")
         farmPanel.classList.remove("hidden")
         cropsCounterContainer.classList.remove("hidden")
+    } else if (currentStory === "story5") {
+        stories["story5"]["resolved"] = true
+        farmDescription.innerText = "Delicious, poop-grown crops."
+        poopPerClick += 15
+        displayUpgrade("upgradeBrownFingers")
+        displayUpgrade("upgradeAgriculturalWasteComposting")
+        displayUpgrade("upgradeVitaminPackedDiet")
     }
 }
 
@@ -183,9 +291,9 @@ alertBtn.addEventListener("click", () => {
     toggleButtons()
 })
 
-
+// PAGE ELEMENT UPDATE HANDLING
 function updateBuildingCounters() {
-    poopPerClickCtr.innerText = `Poop/click: ${poopPerClick}`
+    poopPerClickCtr.innerText = `Poop/click: ${poopPerClick * poopMultiplier}`
     farmBuildingCtr.innerText = `Owned: ${farms}`
     pastureBuildingCtr.innerText = `Owned: ${pastures}`
     dragonSizeCtr.innerText = `Size: ${dragonSize}`
@@ -199,8 +307,8 @@ function updateResourceCounters() {
 }
 
 function updateResourcePerSecondCounters() {
-    cropsPerSecond = farms * cropMultiplier
-    meatPerSecond = pastures * meatMultiplier
+    cropsPerSecond = farms * cropsBaseProduction * cropMultiplier
+    meatPerSecond = pastures * meatBaseProduction * meatMultiplier
     manaPerSecond = Math.max((dragonSize - 3) * manaMultiplier, 0)
 
     cropsPerSecondCounter.innerText = `Crops/sec: ${cropsPerSecond}`
@@ -229,7 +337,7 @@ function addPerSecondResources() {
 
 // RESOURCE BUTTON EVENT LISTENERS
 poopBtn.addEventListener("click", () => {
-    poop += poopPerClick;
+    poop += poopPerClick * poopMultiplier;
     poopResourceCounter.innerText = `Poop: ${poop}`
 })
 
@@ -237,11 +345,100 @@ farmBtn.addEventListener("click", () => {
     if (poop >= farmCost) {
         poop -= farmCost
         farms++
-        farmCost = farms ** 2
+        farmCost = (farms + 1) ** 2 * 10
         comprehensiveUpdate()
     }
 })
 
+pastureBtn.addEventListener("click", () => {
+    if (crops >= pastureCost) {
+        crops -= pastureCost
+        pastures++
+        pastureCost = (pastures + 1) ** 2 * 100
+        comprehensiveUpdate()
+    }
+})
+
+let upgrades = {
+    "upgradeBrownFingers": {
+        "available": false,
+        "purchased": false,
+        "title": "Brown Fingers",
+        "cost": "400 Poop",
+        "costDictionary": {"poop": 400, "crops": 0, "meat": 0, "mana": 0},
+        "description": "+1 Crops/second per Farm"
+    },
+    "upgradeAgriculturalWasteComposting": {
+        "available": false,
+        "purchased": false,
+        "title": "Agricultural Waste Composting",
+        "cost": "1000 Crops",
+        "costDictionary": {"poop": 0, "crops": 1000, "meat": 0, "mana": 0},
+        "description": "x2 Crops per Second"
+    },
+    "upgradeFibrePackedDiet": {
+        "available": false,
+        "purchased": false,
+        "title": "Fibre-Packed Diet",
+        "cost": "400 Crops",
+        "costDictionary": {"poop": 0, "crops": 400, "meat": 0, "mana": 0},
+        "description": "x2 Poop per Click"
+    },
+    "upgradeProteinSufficiency": {
+        "available": false,
+        "purchased": false,
+        "title": "Protein Sufficiency",
+        "cost": "1000 Meat",
+        "costDictionary": {"poop": 0, "crops": 0, "meat": 1000, "mana": 0},
+        "description": "x2 Poop per Click"
+    }
+}
+
+// PURCHASABLE UPGRADE HANDLING
+function displayUpgrade(upgradeName) {
+    // if (upgrades[upgradeName]["available"] && !upgrades[upgradeName]["purchased"]) {
+    let upgradeDiv = document.createElement('div');
+    upgradeDiv.className = 'container-upgrade-item';
+    upgradeDiv.id = upgradeName;
+    upgradeDiv.innerHTML = `
+            <h3>${upgrades[upgradeName].title}</h3>
+            <p>${upgrades[upgradeName].description}</p>
+            <p><i>Cost: ${upgrades[upgradeName].cost}</i></p>`;
+    upgradeDiv.onclick = function () {
+        purchaseUpgrade(upgradeName);
+    };
+    upgradesContainer.appendChild(upgradeDiv);
+    // }
+}
+
+function haveUpgradeResources(upgradeName) {
+    let upgrade = upgrades[upgradeName]
+    return poop >= upgrade.costDictionary["poop"] &&
+        crops >= upgrade.costDictionary["crops"] &&
+        meat >= upgrade.costDictionary["meat"] &&
+        mana >= upgrade.costDictionary["mana"]
+}
+
+function purchaseUpgrade(upgradeName) {
+    if (upgradeName === "upgradeBrownFingers" && haveUpgradeResources(upgradeName)) {
+        poop -= 400
+        cropsBaseProduction++
+        markUpgradePurchase(upgradeName)
+    } else if (upgradeName === "upgradeAgriculturalWasteComposting" && haveUpgradeResources(upgradeName)) {
+        crops -= 600
+        cropMultiplier *= 2
+        markUpgradePurchase(upgradeName)
+    } else if (upgradeName === "upgradeVitaminPackedDiet" && haveUpgradeResources(upgradeName)) {
+        crops -= 800
+        poopMultiplier *= 2
+        markUpgradePurchase(upgradeName)
+    }
+}
+
+function markUpgradePurchase(upgradeName) {
+    upgrades[upgradeName].purchased = true;
+    document.getElementById(upgradeName).style.display = 'none';
+}
 
 // SET INTERVAL LOOP
 setInterval(() => {

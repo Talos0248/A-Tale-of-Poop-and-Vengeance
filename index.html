@@ -14,15 +14,15 @@
 
 </head>
 <body>
-<nav>
-    <img src="" alt="">
-</nav>
-<header>
+<!--<nav>-->
+<!--    <img src="" alt="">-->
+<!--</nav>-->
+<header class="no-select">
     <h1 class="title">
         A Tale of <span class="text-poop">Poop</span> and <span class="text-vengeance">Vengeance</span>
     </h1>
 </header>
-<main class="grid main">
+<main class="grid main no-select">
 
     <div id="left-pane">
         <div class="grid container-resource-panels">
@@ -35,9 +35,9 @@
             </div>
             <div id="panel-farm" class="resource-panel panel-farm hidden">
                 <h3 class="resource-title">Farm</h3>
-                <p class="resource-description">Poop-grown crops.</p>
+                <p class="resource-description" id="description-farm">Poop-grown crops.</p>
                 <img class="resource-icon" src="src/farm.svg" alt="farm">
-                <button class="resource-btn farm-color" id="btn-farm">Buy for X Poop</button>
+                <button class="resource-btn farm-color" id="btn-farm">Buy for 10 Poop</button>
                 <p class="resource-counter" id="building-ctr-farm">Owned: 0</p>
             </div>
             <div id="panel-pasture" class="resource-panel panel-pasture col-span-2 hidden">
@@ -82,7 +82,7 @@
         <div class="info-panel">
             <h3 class="label-heading upgrades-header">Upgrades</h3>
             <hr>
-            <div class="container-upgrades"></div>
+            <div class="container-upgrades" id="container-upgrades"></div>
         </div>
     </div>
     <div id="alert-popup" class="alert-popup hidden">

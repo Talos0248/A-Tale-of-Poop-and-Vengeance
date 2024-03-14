@@ -47,8 +47,14 @@ img, picture, svg, video {
     display: none;
 }
 
+.no-select {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
 /*BUTTON HOVERS*/
-.alert-btn:hover, .resource-btn:hover {
+.alert-btn:hover, .resource-btn:hover, .container-upgrade-item:hover {
     filter: brightness(85%);
 }
 
@@ -249,6 +255,14 @@ img, picture, svg, video {
     font-family: "Courier New", sans-serif;
     margin-top: 30px;
     margin-bottom: 10px;
+}
+
+.container-upgrade-item {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 8px 8px 4px rgba(0, 0, 0, 20%);
+    background-color: #f8ecc9;
 }
 
 /*ALERT PANEL*/
