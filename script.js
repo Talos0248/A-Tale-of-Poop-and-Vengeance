@@ -66,7 +66,7 @@ let stories = {
     "story9": {
         "resolved": false,
         "title": "Disaster has Struck",
-        "content": "<p>The first hint of dawn had yet to break when you are jolted awake by the acrid scent of smoke. You rush to the window of your humble shack, to be met with chaos unfolding before your eyes. An inferno.</p>" +
+        "content": "<p>The first hint of dawn has yet to break when you are jolted awake by the acrid scent of smoke. You rush to the window of your humble shack, to be met with chaos unfolding before your eyes. An inferno.</p>" +
             "<p>It's your farm. Your life's work, the source of your sustenance, the very thing that has given you purpose and hope. It's all going up in flames. With trembling hands you sprint outside, desperate to quench the fire, but the battle is already lost. Fields that had once teemed with life, now reduced to smoldering embers; pastures of your beloved Wildergraze are now consumed by flames. At first, you thought it was an accident — a tragic twist of fate that had reduced your hard-earned success to ash and ruin. But then you found it: a small slip of parchment on the doorstep by your feet, adorned with the official seal of the ruling council.</p>",
         "btnTitle": "\"Know Your Place\"",
         "btnDesc": "Lose Everything"
@@ -118,6 +118,144 @@ let stories = {
     }
 }
 
+let upgrades = {
+    "upgradeSugarRush": {
+        "available": false,
+        "purchased": false,
+        "title": "Sugar Rush",
+        "cost": "40 Crops",
+        "costDictionary": {"poop": 0, "crops": 40, "meat": 0, "mana": 0},
+        "description": "x2 Poop per Click",
+        "outcomeDictionary": {"poopMultiplier": 2}
+    },
+    "upgradeFieldPloughing": {
+        "available": false,
+        "purchased": false,
+        "title": "Field Ploughing",
+        "cost": "200 Crops",
+        "costDictionary": {"poop": 0, "crops": 200, "meat": 0, "mana": 0},
+        "description": "+1 Crops/second per Farm, +1 Hoe-ing around",
+        "outcomeDictionary": {"cropsBaseProduction": 1}
+    },
+    "upgradeBrownFingers": {
+        "available": false,
+        "purchased": false,
+        "title": "Brown Fingers",
+        "cost": "400 Poop",
+        "costDictionary": {"poop": 400, "crops": 0, "meat": 0, "mana": 0},
+        "description": "+2 Crops/second per Farm",
+        "outcomeDictionary": {"cropsBaseProduction": 2}
+    },
+    "upgradeFibrePackedDiet": {
+        "available": false,
+        "purchased": false,
+        "title": "Fibre-Packed Diet",
+        "cost": "400 Crops",
+        "costDictionary": {"poop": 0, "crops": 400, "meat": 0, "mana": 0},
+        "description": "x2 Poop per Click, Smoother Bowel Movements",
+        "outcomeDictionary": {"poopMultiplier": 2}
+    },
+    "upgradeAgriculturalWasteComposting": {
+        "available": false,
+        "purchased": false,
+        "title": "Agricultural Waste Composting",
+        "cost": "1200 Crops",
+        "costDictionary": {"poop": 0, "crops": 1200, "meat": 0, "mana": 0},
+        "description": "x2 Crops per Second",
+        "outcomeDictionary": {"cropMultiplier": 2}
+    },
+    "upgradeProteinSufficiency": {
+        "available": false,
+        "purchased": false,
+        "title": "Protein Sufficiency",
+        "cost": "1000 Meat",
+        "costDictionary": {"poop": 0, "crops": 0, "meat": 1000, "mana": 0},
+        "description": "x2 Poop per Click",
+        "outcomeDictionary": {"poopMultiplier": 2}
+    },
+    "upgradeSpecializedAnimalFeed": {
+        "available": false,
+        "purchased": false,
+        "title": "Specialized Animal Feed",
+        "cost": "2000 Crops",
+        "costDictionary": {"poop": 0, "crops": 2000, "meat": 0, "mana": 0},
+        "description": "+1 Meat/second per Pasture",
+        "outcomeDictionary": {"meatBaseProduction": 1}
+    },
+    "upgradeBalancedDiet": {
+        "available": false,
+        "purchased": false,
+        "title": "Balanced Diet",
+        "cost": "500 Meat, 1500 Crops",
+        "costDictionary": {"poop": 0, "crops": 1500, "meat": 500, "mana": 0},
+        "description": "x2 Poop per Click",
+        "outcomeDictionary": {"poopMultiplier": 2}
+    },
+    "upgradeSelectiveBreeding": {
+        "available": false,
+        "purchased": false,
+        "title": "Selective Breeding",
+        "cost": "4000 Crops",
+        "costDictionary": {"poop": 0, "crops": 4000, "meat": 0, "mana": 0},
+        "description": "x2 Meat per Pasture",
+        "outcomeDictionary": {"meatMultiplier": 2}
+    },
+    "upgradeWildergrazeManure": {
+        "available": false,
+        "purchased": false,
+        "title": "Wildergraze Manure",
+        "cost": "250 Meat",
+        "costDictionary": {"poop": 0, "crops": 0, "meat": 250, "mana": 0},
+        "description": "x2 Crops per Farm",
+        "outcomeDictionary": {"cropsBaseProduction": 2}
+    },
+    "upgradeNutritionResearch": {
+        "available": false,
+        "purchased": false,
+        "title": "Nutrition Research",
+        "cost": "15000 Crops, 1500 Meat",
+        "costDictionary": {"poop": 0, "crops": 15000, "meat": 1500, "mana": 0},
+        "description": "x2 Meat per Pasture",
+        "outcomeDictionary": {"meatMultiplier": 2}
+    },
+    "upgradeHireFarmhands1": {
+        "available": false,
+        "purchased": false,
+        "title": "Hire a Few Farmhands",
+        "cost": "10000 Crops, 1000 Meat",
+        "costDictionary": {"poop": 0, "crops": 10000, "meat": 1000, "mana": 0},
+        "description": "x2 Farm and Pasture Production",
+        "outcomeDictionary": {"cropMultiplier": 2, "meatMultiplier": 2}
+    },
+    "upgradeHireFarmhands2": {
+        "available": false,
+        "purchased": false,
+        "title": "Hire More Farmhands",
+        "cost": "25000 Crops, 2500 Meat",
+        "costDictionary": {"poop": 0, "crops": 25000, "meat": 2500, "mana": 0},
+        "description": "x3 Farm and Pasture Production",
+        "outcomeDictionary": {"cropMultiplier": 3, "meatMultiplier": 3}
+    },
+    "upgradeHireFarmhands3": {
+        "available": false,
+        "purchased": false,
+        "title": "Hire a Lot More Farmhands",
+        "cost": "100000 Crops, 10000 Meat",
+        "costDictionary": {"poop": 0, "crops": 50000, "meat": 5000, "mana": 0},
+        "description": "x4 Farm and Pasture Production",
+        "outcomeDictionary": {"cropMultiplier": 4, "meatMultiplier": 4}
+    },
+    "upgradeMuscleMemory": {
+        "available": false,
+        "purchased": false,
+        "title": "Muscle Memory",
+        "cost": "Costs Your Hopes and Dreams",
+        "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 0},
+        "description": "x2 Poop per Click",
+        "outcomeDictionary": {"poopMultiplier": 2}
+    }
+}
+
 //Interactive Elements
 const poopPanel = document.getElementById("panel-poop")
 const farmPanel = document.getElementById("panel-farm")
@@ -134,6 +272,8 @@ const pastureBtn = document.getElementById("btn-pasture")
 const pastureBuildingCtr = document.getElementById("building-ctr-pasture")
 const dragonBtn = document.getElementById("btn-dragon")
 const dragonSizeCtr = document.getElementById("building-ctr-dragon")
+const dragonDescription = document.getElementById("resource-description-dragon")
+const dragonIcon = document.getElementById("resource-icon-dragon")
 
 const cropsCounterContainer = document.getElementById("container-ctr-crops")
 const meatCounterContainer = document.getElementById("container-ctr-meat")
@@ -161,6 +301,7 @@ const poopColor = "#8B4513"
 const farmColor = "#006400"
 const pastureColor = "#8B0000"
 const dragonColor = "#203887"
+const dangerColor = "#EE4B2B"
 
 //Game Variables
 let currentStory = null
@@ -256,7 +397,22 @@ function triggerStories() {
         generateStoryPopup(currentStory, farmColor)
     } else if (!stories["story6"]["resolved"] && crops >= 800) {
         currentStory = "story6"
-        generateStoryPopup(currentStory, farmColor)
+        generateStoryPopup(currentStory, pastureColor)
+    } else if (!stories["story7"]["resolved"] && crops >= 1000) {
+        currentStory = "story7"
+        generateStoryPopup(currentStory, pastureColor)
+    } else if (!stories["story8"]["resolved"] && crops >= 8000 && meat >= 1000) {
+        currentStory = "story8"
+        generateStoryPopup(currentStory, pastureColor)
+    } else if (!stories["story9"]["resolved"] && crops >= 10000 && meat >= 1000) {
+        currentStory = "story9"
+        generateStoryPopup(currentStory, dangerColor)
+    } else if (!stories["story10"]["resolved"] && poop >= 50) {
+        currentStory = "story10"
+        generateStoryPopup(currentStory, dragonColor)
+    } else if (!stories["story11"]["resolved"] && dragonSize >= 2) {
+        currentStory = "story11"
+        generateStoryPopup(currentStory, dragonColor)
     }
 }
 
@@ -274,13 +430,55 @@ function resolveStoryStates() {
         poopPanel.classList.remove("col-span-2")
         farmPanel.classList.remove("hidden")
         cropsCounterContainer.classList.remove("hidden")
+        displayUpgrade("upgradeSugarRush")
+        displayUpgrade("upgradeFieldPloughing")
     } else if (currentStory === "story5") {
         stories["story5"]["resolved"] = true
         farmDescription.innerText = "Delicious, poop-grown crops."
         poopPerClick += 15
         displayUpgrade("upgradeBrownFingers")
+        displayUpgrade("upgradeFibrePackedDiet")
         displayUpgrade("upgradeAgriculturalWasteComposting")
-        displayUpgrade("upgradeVitaminPackedDiet")
+    } else if (currentStory === "story6") {
+        stories["story6"]["resolved"] = true
+        crops -= 400
+    } else if (currentStory === "story7") {
+        stories["story7"]["resolved"] = true
+        pasturePanel.classList.remove("hidden")
+        meatCounterContainer.classList.remove("hidden")
+        displayUpgrade("upgradeProteinSufficiency")
+        displayUpgrade("upgradeBalancedDiet")
+        displayUpgrade("upgradeSpecializedAnimalFeed")
+        displayUpgrade("upgradeWildergrazeManure")
+        displayUpgrade("upgradeSelectiveBreeding")
+        displayUpgrade("upgradeNutritionResearch")
+    } else if (currentStory === "story8") {
+        stories["story8"]["resolved"] = true
+        displayUpgrade("upgradeHireFarmhands1")
+        displayUpgrade("upgradeHireFarmhands2")
+        displayUpgrade("upgradeHireFarmhands3")
+    } else if (currentStory === "story9") {
+        stories["story9"]["resolved"] = true
+        poopPanel.classList.add("col-span-2")
+        farmPanel.classList.add("hidden")
+        pasturePanel.classList.add("hidden")
+        resetUpgrades()
+        let tempPoop = poop
+        resetStats()
+        poop = tempPoop
+        meat = 10
+        displayUpgrade("upgradeMuscleMemory")
+    } else if (currentStory === "story10") {
+        stories["story10"]["resolved"] = true
+        poopPanel.classList.remove("col-span-2")
+        dragonPanel.classList.remove("hidden")
+    } else if (currentStory === "story11") {
+        stories["story11"]["resolved"] = true
+        farmPanel.classList.remove("hidden")
+        pasturePanel.classList.remove("hidden")
+        displayUpgrade("upgradeSugarRush")
+        displayUpgrade("upgradeFieldPloughing")
+        //ad other upgrades here pls
     }
 }
 
@@ -359,40 +557,51 @@ pastureBtn.addEventListener("click", () => {
     }
 })
 
-let upgrades = {
-    "upgradeBrownFingers": {
-        "available": false,
-        "purchased": false,
-        "title": "Brown Fingers",
-        "cost": "400 Poop",
-        "costDictionary": {"poop": 400, "crops": 0, "meat": 0, "mana": 0},
-        "description": "+1 Crops/second per Farm"
-    },
-    "upgradeAgriculturalWasteComposting": {
-        "available": false,
-        "purchased": false,
-        "title": "Agricultural Waste Composting",
-        "cost": "1000 Crops",
-        "costDictionary": {"poop": 0, "crops": 1000, "meat": 0, "mana": 0},
-        "description": "x2 Crops per Second"
-    },
-    "upgradeFibrePackedDiet": {
-        "available": false,
-        "purchased": false,
-        "title": "Fibre-Packed Diet",
-        "cost": "400 Crops",
-        "costDictionary": {"poop": 0, "crops": 400, "meat": 0, "mana": 0},
-        "description": "x2 Poop per Click"
-    },
-    "upgradeProteinSufficiency": {
-        "available": false,
-        "purchased": false,
-        "title": "Protein Sufficiency",
-        "cost": "1000 Meat",
-        "costDictionary": {"poop": 0, "crops": 0, "meat": 1000, "mana": 0},
-        "description": "x2 Poop per Click"
+dragonBtn.addEventListener("click", () => {
+    if (meat >= dragonCost) {
+        meat -= dragonCost
+        dragonSize++
+        dragonCost = (dragonSize + 1) ** 4
+        comprehensiveUpdate()
+        updateDragonDescription()
+        updateDragonImage()
+    }
+})
+
+let dragonStages = [
+    "It's but a wee hatchling.",
+    "Watch your fingers, it's teething.",
+    "Loves to snuggle up in hats.",
+    "Its roars are tiny squeaks.",
+    "Loves playing with its shadows.",
+    "Keeps your home rat-free.",
+    "Voracious appetite.",
+    "Portable lighter.",
+    "Sprouting the Tiniest of Wings.",
+    "Breathes a gorgeous blue flame.",
+    "Enjoys sunbathing on the roof.",
+    "Its scales glisten like jewels in the light.",
+    "Can do back flips in the sky.",
+    "Majestic and fearsome, it's a sight to behold.",
+    "A legendary force to be reckoned with."
+]
+
+let updateDragonDescription = () => {
+    if (dragonSize < dragonStages.length) {
+        dragonDescription.innerText = dragonStages[dragonSize - 1]
+    } else {
+        dragonDescription.innerText = "Draconic Monarch."
     }
 }
+
+let updateDragonImage = () => {
+    if (dragonSize >= 10) {
+        dragonIcon.src = "./src/dragon-2.svg"
+    } else if (dragonSize >= 15) {
+        dragonIcon.src = "./src/dragon-3.svg"
+    }
+}
+
 
 // PURCHASABLE UPGRADE HANDLING
 function displayUpgrade(upgradeName) {
@@ -419,26 +628,140 @@ function haveUpgradeResources(upgradeName) {
         mana >= upgrade.costDictionary["mana"]
 }
 
-function purchaseUpgrade(upgradeName) {
-    if (upgradeName === "upgradeBrownFingers" && haveUpgradeResources(upgradeName)) {
-        poop -= 400
-        cropsBaseProduction++
-        markUpgradePurchase(upgradeName)
-    } else if (upgradeName === "upgradeAgriculturalWasteComposting" && haveUpgradeResources(upgradeName)) {
-        crops -= 600
-        cropMultiplier *= 2
-        markUpgradePurchase(upgradeName)
-    } else if (upgradeName === "upgradeVitaminPackedDiet" && haveUpgradeResources(upgradeName)) {
-        crops -= 800
-        poopMultiplier *= 2
-        markUpgradePurchase(upgradeName)
-    }
+function deductUpgradeResources(upgradeName) {
+    let upgrade = upgrades[upgradeName]
+    poop -= upgrade.costDictionary["poop"]
+    crops -= upgrade.costDictionary["crops"]
+    meat -= upgrade.costDictionary["meat"]
+    mana -= upgrade.costDictionary["mana"]
 }
 
 function markUpgradePurchase(upgradeName) {
     upgrades[upgradeName].purchased = true;
-    document.getElementById(upgradeName).style.display = 'none';
+    updateResourceCounters()
+    updateResourcePerSecondCounters()
+    let element = document.getElementById(upgradeName);
+    upgradesContainer.removeChild(element);
 }
+
+function resetUpgrades() {
+    for (let upgrade in upgrades) {
+        upgrades[upgrade].available = false
+        upgrades[upgrade].purchased = false
+        upgradesContainer.innerHTML = ""
+    }
+}
+
+function resetStats() {
+    poop = 0
+    poopMultiplier = 1
+    poopPerClick = 5
+
+    farms = 0
+    crops = 0
+    cropsBaseProduction = 1
+    cropMultiplier = 1
+    cropsPerSecond = 0
+
+    pastures = 0
+    meat = 0
+    meatBaseProduction = 1
+    meatMultiplier = 1
+    meatPerSecond = 0
+
+    dragonSize = 1
+    mana = 0
+    manaBaseProduction = 1
+    manaMultiplier = 1
+    manaPerSecond = 0
+
+    farmCost = 10;
+    pastureCost = 100;
+    dragonCost = 1000;
+}
+
+function purchaseUpgrade(upgradeName) {
+    if (haveUpgradeResources(upgradeName)) {
+        let upgrade = upgrades[upgradeName]
+        deductUpgradeResources(upgradeName)
+        if (upgrade.outcomeDictionary.hasOwnProperty("poopMultiplier")) {
+            poopMultiplier *= upgrade.outcomeDictionary["poopMultiplier"]
+        }
+        if (upgrade.outcomeDictionary.hasOwnProperty("cropsBaseProduction")) {
+            cropsBaseProduction += upgrade.outcomeDictionary["cropsBaseProduction"]
+        }
+        if (upgrade.outcomeDictionary.hasOwnProperty("cropMultiplier")) {
+            cropMultiplier *= upgrade.outcomeDictionary["cropMultiplier"]
+        }
+        if (upgrade.outcomeDictionary.hasOwnProperty("meatBaseProduction")) {
+            meatBaseProduction += upgrade.outcomeDictionary["meatBaseProduction"]
+        }
+        if (upgrade.outcomeDictionary.hasOwnProperty("meatMultiplier")) {
+            meatMultiplier *= upgrade.outcomeDictionary["meatMultiplier"]
+        }
+        if (upgrade.outcomeDictionary.hasOwnProperty("manaBaseProduction")) {
+            manaBaseProduction += upgrade.outcomeDictionary["manaBaseProduction"]
+        }
+        if (upgrade.outcomeDictionary.hasOwnProperty("manaMultiplier")) {
+            manaMultiplier *= upgrade.outcomeDictionary["manaMultiplier"]
+        }
+        markUpgradePurchase(upgradeName)
+    }
+}
+
+// function purchaseUpgrade(upgradeName) {
+//     if (upgradeName === "upgradeBrownFingers" && haveUpgradeResources(upgradeName)) {
+//         deductUpgradeResources(upgradeName)
+//         cropsBaseProduction++
+//         markUpgradePurchase(upgradeName)
+//     } else if (upgradeName === "upgradeAgriculturalWasteComposting" && haveUpgradeResources(upgradeName)) {
+//         deductUpgradeResources(upgradeName)
+//         cropMultiplier *= 2
+//         markUpgradePurchase(upgradeName)
+//     } else if (upgradeName === "upgradeFibrePackedDiet" && haveUpgradeResources(upgradeName)) {
+//         deductUpgradeResources(upgradeName)
+//         poopMultiplier *= 2
+//         markUpgradePurchase(upgradeName)
+//     } else if (upgradeName === "upgradeProteinSufficiency" && haveUpgradeResources(upgradeName)) {
+//         deductUpgradeResources(upgradeName)
+//         poopMultiplier *= 2
+//         markUpgradePurchase(upgradeName)
+//     } else if (upgradeName === "upgradeSpecializedAnimalFeed" && haveUpgradeResources(upgradeName)) {
+//         deductUpgradeResources(upgradeName)
+//         meatBaseProduction++
+//         markUpgradePurchase(upgradeName)
+//     } else if (upgradeName === "upgradeBalancedDiet" && haveUpgradeResources(upgradeName)) {
+//         deductUpgradeResources(upgradeName)
+//         poopMultiplier *= 2
+//         markUpgradePurchase(upgradeName)
+//     } else if (upgradeName === "upgradeSelectiveBreeding" && haveUpgradeResources(upgradeName)) {
+//         deductUpgradeResources(upgradeName)
+//         meatMultiplier++
+//         markUpgradePurchase(upgradeName)
+//     } else if (upgradeName === "upgradeNutritionResearch" && haveUpgradeResources(upgradeName)) {
+//         deductUpgradeResources(upgradeName)
+//         meatMultiplier *= 2
+//         markUpgradePurchase(upgradeName)
+//     } else if (upgradeName === "upgradeHireFarmhands1" && haveUpgradeResources(upgradeName)) {
+//         deductUpgradeResources(upgradeName)
+//         cropMultiplier *= 2
+//         meatMultiplier *= 2
+//         markUpgradePurchase(upgradeName)
+//     } else if (upgradeName === "upgradeHireFarmhands2" && haveUpgradeResources(upgradeName)) {
+//         deductUpgradeResources(upgradeName)
+//         cropMultiplier *= 2
+//         meatMultiplier *= 2
+//         markUpgradePurchase(upgradeName)
+//     } else if (upgradeName === "upgradeHireFarmhands3" && haveUpgradeResources(upgradeName)) {
+//         deductUpgradeResources(upgradeName)
+//         cropMultiplier *= 2
+//         meatMultiplier *= 2
+//         markUpgradePurchase(upgradeName)
+//     } else {
+//         console.log(`Error: ${upgradeName} not found or insufficient resources.`)
+//     }
+// }
+
 
 // SET INTERVAL LOOP
 setInterval(() => {

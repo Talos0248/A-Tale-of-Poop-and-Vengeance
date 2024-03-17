@@ -1,6 +1,6 @@
 You are a poop scooper, an occupation reserved for the lowest rung of society...
 
-[>= 10] ...as was your father, and the father of your father, and all of his ancestors before. Destiny wasn't a choice in these lands; you were born into this lineage, dealt this cruel hand at birth.
+[>= 10] ...as was your father, and the father of your father, and all of his ancestors before. Destiny wasn't a choice in these lands; you were born into this profession, dealt this cruel hand at birth.
 
 [>=25] You're reminded of your fifth birthday: the scorching, unrelenting midday heat, flimsy rubber boots squelching as you trudged through the filth, the unmistakable stench of feces hanging in the air.
 
@@ -8,21 +8,17 @@ You are a poop scooper, an occupation reserved for the lowest rung of society...
 
 [Channel your strength. | +2 Poop per Click]
 
-[On upgrade purchase] With a frustrated grunt, you plunge the shovel into a particularly odorous pile of waste, the stench assaulting your senses like a physical blow. Bile rises in your throat, but you force it down.
+[On upgrade purchase] With a frustrated grunt, you plunge your shovel into a particularly odorous pile of waste, the stench assaulting your senses like a physical blow. Bile rises in your throat, but you force it down.
 
-[>=100] As you work, your mind churns with thoughts of injustice and indignity. How could they expect you to spend your days waist-deep in filth, while others live lives of luxury and privilege? It isn't fair, it isn't right.
+[>=100] As you work, your mind churns with thoughts of injustice and indignity. How could they expect you to spend your days waist-deep in filth, while others live lives of luxury and privilege?
 
 [Harness your resentment. | +2 Poop per Click]
 
 [>=200] ALERT: You shovel, and shovel, and shovel, until something inside you snaps.
 
-You've had enough of this life, enough of being treated like dirt beneath someone else's boot. With a roar of frustration, you hurl the scoop aside, its metal tip plunging straight down into the muck. You want out.
+You've had enough of this life, enough of being treated like dirt beneath someone else's boot. With a roar of frustration, you hurl the scoop aside, its metal tip plunging straight down into the muck. You want out. But then your emotions settle, and you come to the same realization you've had countless times before: What other choice do you have?
 
-But then your emotions settle, and you come to the same realization you've had countless times before: What other choice do you have?
-
-[Pick up the scooper. | Work must continue.]
-
-[>=200] You continue to dig, when suddenly, you spot something nestled amongst the rot and decay. A verdant seedling, barely a green speck, sprouting from the muck. Truly a curious sight — in your decades of toil and labor, not even the hardiest crop could survive in this wasteland of grime and sludge, and yet this plant seems healthy and unbothered.
+You bend to retrieve the shovel and continue to dig, when suddenly, you spot something nestled amongst the rot and decay. A verdant seedling, barely a green speck, sprouting from the muck. Truly a curious sight — in your decades of toil and labor, not even the hardiest crop could survive in this wasteland of grime and sludge, and yet this plant seems healthy and unbothered.
 
 [Cultivate the plant. | You can now build farms!]
 
@@ -32,7 +28,8 @@ But then your emotions settle, and you come to the same realization you've had c
 
 # Poop-grown crops > Delicious, poop-grown crops.
 # 400 poop [Upgrade: Brown Fingers | +1 Crops/second per farm]
-# 400 veg [Upgrade: Vitamin-packed Diet | x2 poop per click]
+#400 veg [Upgrade: Agricultural Waste Composting | x2 Crops per second]
+# 800 veg [Upgrade: Vitamin-packed Diet | x2 poop per click]
 
 
 [veg >= 1000] On one particular evening of trudging through the expanse of your farm, you come across a trail of half-eaten fruit, many of them low hanging. Must be the work of Wildergraze. These lean, agile creatures used to survive on whatever scraps of vegetation they could find. They left a long time ago after turning these grounds barren, but it seems your crops have attracted their presence once more.
@@ -48,27 +45,36 @@ But then your emotions settle, and you come to the same realization you've had c
 # 400 meat, 4000 veg [Upgrade: Balanced Diet | x2 poop per click]
 # 4000 veg [Upgrade: Selective Breeding | + 2 Meat/second per pasture]
 
-[veg >= 10000, meat >= 2000] Crop harvests are abundant, and the Wildergraze are thriving. Word of your success spreads like wildfire through the nearby villages, whispers of admiration mingling with the morning mist.
+[veg >= 10000, meat >= 2000] Crop harvests are abundant, and the Wildergraze are thriving. Word of your success spreads like wildfire through the nearby villages, whispers of admiration mingling with the morning mist. As you tend to your farm, you notice a lone figure approaching you. A villager.
 
-[Hire some farmhands. | -10000 veg, -2000 meat, x3 Crop and Meat production]
+<i>Excuse me,</i> they say, followed by a humble request to work on your farm. They're tired of the meager rations the council provides, longing for something more substantial to sustain themselves and their family.
+
+[Keep their Request in Mind | You can now hire villagers!]
+
+#? veg, ? meat [Hire a few farmhands. | x2 Crop and Meat Production]
+#10000 veg, 2000 meat [Hire some more farmhands. |  x3 Crop and Meat production]
+#? veg, ? meat, [Hire a lot of farmhands. | x4 Crop and Meat production]
 
 [veg >= 50000, meat >= 5000] Disaster has struck. The first hint of dawn had yet to break when you are jolted awake by the acrid scent of smoke. You rush to the window of your humble shack, to be met with chaos unfolding before your eyes. An inferno.
 
-With trembling hands you sprint outside, desperate to quench the fire, but the battle is already lost. Fields that had once teemed with life, now reduced to smoldering embers, pastures of your beloved Wildergraze now consumed by flames. At first, you thought it was an accident—a tragic twist of fate that had reduced your hard-earned success to ash and ruin. But then you found it: a small slip of parchment on the doorstep by your feet, adorned with the official seal of the ruling council.
+With trembling hands you sprint outside, desperate to quench the fire, but the battle is already lost. Fields that had once teemed with life, now reduced to smoldering embers; pastures of your beloved Wildergraze are now consumed by flames. At first, you thought it was an accident — a tragic twist of fate that had reduced your hard-earned success to ash and ruin. But then you found it: a small slip of parchment on the doorstep by your feet, adorned with the official seal of the ruling council.
 
-["Know your place."]
+["Know your place." | Lose Everything.]
 
-<leave users with 20 meat and 20 veg>
+<leave users with 20 meat and 20 veg> !!! Remember to clear the upgrade div
 
-[>= 1000] With a heavy heart, you returned to the life of a poop scooper. Days had passed since the devastating fire tore through your farm, each step home a painful reminder of all that had been lost as you wandered past the ashes. But, today, amidst the desolation, you catch a glimmer of movement. There, nestled within the ashes and embers, lies a small, fragile creature, its scales shimmering like molten gold in the dim light of dawn. As you approach, it raises its head defiantly, tiny jaws snapping and claws scrabbling as it tries to ward you off.
+[>= 1000] With a heavy heart, you return to the life of a poop scooper. Days pass since the devastating fire tore through your farm, each step home a painful reminder of all that had been lost as you wandered past the ashes. But, today, amidst the desolation, you catch a glimmer of movement. There, nestled within the ashes and embers, lies a small, fragile creature, its scales shimmering like molten gold in the dim light of dawn. As you approach, it raises its head defiantly, tiny jaws snapping and claws scrabbling as it tries to ward you off.
 
-[Perhaps an offering of meat will calm it down? | You now own a baby dragon!]
+[Offer it some Meat | You now own a baby dragon!]
+> Meat -1
 
 [What will you name the dragon?]
 
-Size > n^2 feed > n^3  n=level? *2 mana per stage?
+Size > n^2 feed > n^4  n=level? *2 mana per stage?
 
-[Size >= 3] You watch with a mixture of awe as the baby dragon in your care grows at an astonishing rate, but as the dragon's appetite grows, so too does your worry. The stockpile of leftover meat you have left is quickly dwindling, and you know that you'll need a more sustainable solution to feed the ravenous creature. You make the difficult decision to restart your ventures into farming and pasturing despite knowing the risks.
+[Size >= 3] You watch with a mixture of awe as the baby dragon in your care grows at an astonishing rate, but as the dragon's appetite balloons, so too does your worry. The stockpile of leftover meat you have left is quickly dwindling, and you know that you'll need a more sustainable solution to feed the ravenous creature.
+
+Unwilling to abandon the newborn hatchling and seeing no other option, you make the difficult decision to restart your ventures into farming and pasturing despite knowing the risks.
 
 [Do it for {dragonname}. | Farms and pastures unlocked (again)!]
 
@@ -84,18 +90,17 @@ Size > n^2 feed > n^3  n=level? *2 mana per stage?
 
 They've come for you.
 
-[Unleash your dragon on them. | +500 meat]
+[Unleash your Dragon | +500 meat]
 
 # Story unlock [Upgrade: Bone Fertilizer | x4 Crops Production]
 # 500 meat [Upgrade: Protein-Fortified Feed | x4 Meat Production]
 
 [Size >= 20] Army on the Horizon. With no word coming from the soldiers who have been dispatched to confront you, The ruling council grows increasingly impatient, deciding to take matters into their own hands. A larger, more formidable army looms beyond the horizon, marching in lockstep, their weapons glinting ominously under the full moon.
 
-Still, they're no match for {dragonname}'s fury.
+Still, they're no match for your dragon's fury.
 
 [Fools, the lot of them. | +5000 meat]
 
-# Story unlock [Upgrade: Volunteer Farmhands | x5 Resource Production]
 # 2000 mana [Upgrade: Soulmancy | x10 Meat Production]
 # 5000 meat [Upgrade: Corpse Composting | x10 Crops Production]
 
@@ -117,7 +122,14 @@ Allies rallied and resources marshaled, you're prepared as can be for the battle
 
 The council did not anticipate such a swift and decisive response; the element of surprise proved to your advantage. Under your signal, your army surges forward, the sound of hooves pounding against the earth mingling with the roar of your dragon's wings overhead. The council's guards scramble to mount a defense against the tempestuous descent of your forces upon the stronghold, the clash of steel ringing out amidst the chaos of battle.
 
-Two days. It took but two days for the stronghold to fall.
+Two days. It took a mere two days for the stronghold to fall. The first day of the siege was marked by fierce skirmishes, the clang of steel on steel intertwined with the shouts of warriors; by nightfall, the outer walls had been breached, and your army stood poised to launch a final assault on the inner sanctum. On the second day, the battle raged on within the narrow confines of the inner courtyard. Despite the council's desperate attempts to hold their ground, they were no match for the combined might of your army and the dragon. Hour by hour their defenses were whittled down, and then — just as the sun reached its zenith in the sky — crushed, entirely between your feet.
+
+As you stride into the council chambers, a heavy silence hangs in the air, broken only by the echoing footsteps of your boots against the stone floor. The council members, their faces twisted with fear and desperation, raise their hands in a futile gesture of surrender. Some fall to their knees, their voices choked with tears as they beg for clemency. Others stumble over their words, pleas jumbled and incomprehensible in their panic.
+
+A futile gesture.
+
+You raise a hand to signal your dragon, and instantly, a deafening silence engulfs you, pleas for mercy cut short in a blast of acrid smoke and hellfire. It was their treachery that had set your farms and pastures ablaze, destroying everything you had worked so hard to build. And now, justice has been served.
+
 
 With the council defeated and their stronghold in ruins, a new era dawns for the land. Only time will tell if you end up a champion of the people or an iron-fisted tyrant, but one thing is for certain:
 
@@ -133,12 +145,19 @@ You have found your vengeance.
 
 Coprophilous vegetation
 
+# Infinite, undiminishing poop > Infinite, undiminishing fertilizer
 # Poop-grown crops > Delicious, poop-grown crops.
 
 
 
 Upgrade: Brown Fingers, Healthy Balanced Diet
 
+Hatchling
 > Just a wee hatchling
 > It's teething! Watch your fingers...
+
+Drake
 > Voracious appetite.
+
+Dragon
+> Majestic... and dangerous.

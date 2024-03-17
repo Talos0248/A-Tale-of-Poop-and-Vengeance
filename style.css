@@ -55,7 +55,12 @@ img, picture, svg, video {
 
 /*BUTTON HOVERS*/
 .alert-btn:hover, .resource-btn:hover, .container-upgrade-item:hover {
-    filter: brightness(85%);
+    filter: brightness(90%);
+}
+
+/*BUTTON CLICKS*/
+.alert-btn:active, .resource-btn:active, .container-upgrade-item:active {
+    filter: brightness(80%);
 }
 
 /*PROJECT STYLING*/
@@ -247,7 +252,8 @@ img, picture, svg, video {
 }
 
 .container-upgrades {
-    height: 400px;
+    height: 600px;
+    overflow-y: auto;
 }
 
 .upgrades-header {
