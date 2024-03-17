@@ -44,7 +44,7 @@ let stories = {
     "story6": {
         "resolved": false,
         "title": "Fuzzy, Furry Nuisances",
-        "content": "<p>On one particular evening of trudging through the expanse of your farm, you come across a trail of half-eaten fruit, many of them low hanging. Must be the work of Wildergraze. These lean, agile creatures used to survive on whatever scraps of vegetation they could find. They left a long time ago after turning these grounds barren, but it seems your crops have attracted their presence once more.</p>",
+        "content": "<p>Trudging through the expanse of your farm on one particular evening, you come across a trail of half-eaten fruit, many of them low hanging. Must be the work of Wildergraze. These lean, agile creatures used to survive on whatever scraps of vegetation they could find. They left a long time ago after turning these grounds barren, but it seems your crops have attracted their presence once more.</p>",
         "btnTitle": "Damned Wildergraze!",
         "btnDesc": "-400 Crops"
     },
@@ -132,8 +132,8 @@ let upgrades = {
         "available": false,
         "purchased": false,
         "title": "Field Ploughing",
-        "cost": "200 Crops",
-        "costDictionary": {"poop": 0, "crops": 200, "meat": 0, "mana": 0},
+        "cost": "250 Crops",
+        "costDictionary": {"poop": 0, "crops": 250, "meat": 0, "mana": 0},
         "description": "+1 Crops/second per Farm, +1 Hoe-ing around",
         "outcomeDictionary": {"cropsBaseProduction": 1}
     },
@@ -249,10 +249,10 @@ let upgrades = {
         "available": false,
         "purchased": false,
         "title": "Muscle Memory",
-        "cost": "Costs Your Hopes and Dreams",
+        "cost": "Is There Nothing Left...?",
         "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 0},
-        "description": "x2 Poop per Click",
-        "outcomeDictionary": {"poopMultiplier": 2}
+        "description": "x10 Poop per Click",
+        "outcomeDictionary": {"poopMultiplier": 10}
     }
 }
 
@@ -331,7 +331,7 @@ let manaPerSecond = 0
 
 let farmCost = 10;
 let pastureCost = 100;
-let dragonCost = 1000;
+let dragonCost = 1;
 
 //Functions
 function enableButtons() {
@@ -383,36 +383,40 @@ function triggerStories() {
     if (!stories["story1"]["resolved"]) {
         currentStory = "story1"
         generateStoryPopup(currentStory, poopColor)
-    } else if (!stories["story2"]["resolved"] && poop >= 50) {
+    } else if (!stories["story2"]["resolved"] && stories["story1"]["resolved"] && poop >= 50) {
         currentStory = "story2"
         generateStoryPopup(currentStory, poopColor)
-    } else if (!stories["story3"]["resolved"] && poop >= 200) {
+    } else if (!stories["story3"]["resolved"] && stories["story2"]["resolved"] && poop >= 200) {
         currentStory = "story3"
         generateStoryPopup(currentStory, poopColor)
-    } else if (!stories["story4"]["resolved"] && poop >= 500) {
+    } else if (!stories["story4"]["resolved"] && stories["story3"]["resolved"] && poop >= 500) {
         currentStory = "story4"
         generateStoryPopup(currentStory, farmColor)
-    } else if (!stories["story5"]["resolved"] && crops >= 200) {
+    } else if (!stories["story5"]["resolved"] && stories["story4"]["resolved"] && crops >= 200) {
         currentStory = "story5"
         generateStoryPopup(currentStory, farmColor)
-    } else if (!stories["story6"]["resolved"] && crops >= 800) {
+    } else if (!stories["story6"]["resolved"] && stories["story5"]["resolved"] && crops >= 800) {
         currentStory = "story6"
         generateStoryPopup(currentStory, pastureColor)
-    } else if (!stories["story7"]["resolved"] && crops >= 1000) {
+    } else if (!stories["story7"]["resolved"] && stories["story6"]["resolved"] && crops >= 1000) {
         currentStory = "story7"
         generateStoryPopup(currentStory, pastureColor)
-    } else if (!stories["story8"]["resolved"] && crops >= 8000 && meat >= 1000) {
+    } else if (!stories["story8"]["resolved"] && stories["story7"]["resolved"] && crops >= 8000 && meat >= 1000) {
         currentStory = "story8"
         generateStoryPopup(currentStory, pastureColor)
-    } else if (!stories["story9"]["resolved"] && crops >= 10000 && meat >= 1000) {
+    } else if (!stories["story9"]["resolved"] && stories["story8"]["resolved"] && crops >= 15000 && meat >= 2000) {
         currentStory = "story9"
         generateStoryPopup(currentStory, dangerColor)
-    } else if (!stories["story10"]["resolved"] && poop >= 50) {
+    } else if (!stories["story10"]["resolved"] && stories["story9"]["resolved"] && poop >= 500) {
         currentStory = "story10"
         generateStoryPopup(currentStory, dragonColor)
-    } else if (!stories["story11"]["resolved"] && dragonSize >= 2) {
+    } else if (!stories["story11"]["resolved"] && stories["story10"]["resolved"] && dragonSize >= 3) {
         currentStory = "story11"
         generateStoryPopup(currentStory, dragonColor)
+    } else if (!stories["story12"]["resolved"] && stories["story11"]["resolved"] && dragonSize >= 10) {
+        currentStory = "story12"
+        generateStoryPopup(currentStory, dragonColor)
+
     }
 }
 
@@ -422,6 +426,7 @@ function resolveStoryStates() {
     } else if (currentStory === "story2") {
         stories["story2"]["resolved"] = true
         poopPerClick += 2
+        comprehensiveUpdate()
     } else if (currentStory === "story3") {
         stories["story3"]["resolved"] = true
         poopPerClick += 2
@@ -462,24 +467,40 @@ function resolveStoryStates() {
         poopPanel.classList.add("col-span-2")
         farmPanel.classList.add("hidden")
         pasturePanel.classList.add("hidden")
+        pasturePanel.classList.remove("col-span-2")
         resetUpgrades()
-        let tempPoop = poop
         resetStats()
-        poop = tempPoop
-        meat = 10
+        meat = 100
         displayUpgrade("upgradeMuscleMemory")
     } else if (currentStory === "story10") {
         stories["story10"]["resolved"] = true
         poopPanel.classList.remove("col-span-2")
         dragonPanel.classList.remove("hidden")
+        meat -= 1
     } else if (currentStory === "story11") {
         stories["story11"]["resolved"] = true
         farmPanel.classList.remove("hidden")
         pasturePanel.classList.remove("hidden")
         displayUpgrade("upgradeSugarRush")
         displayUpgrade("upgradeFieldPloughing")
-        //ad other upgrades here pls
+        displayUpgrade("upgradeBrownFingers")
+        displayUpgrade("upgradeFibrePackedDiet")
+        displayUpgrade("upgradeAgriculturalWasteComposting")
+        displayUpgrade("upgradeProteinSufficiency")
+        displayUpgrade("upgradeBalancedDiet")
+        displayUpgrade("upgradeSpecializedAnimalFeed")
+        displayUpgrade("upgradeWildergrazeManure")
+        displayUpgrade("upgradeSelectiveBreeding")
+        displayUpgrade("upgradeNutritionResearch")
+        displayUpgrade("upgradeHireFarmhands1")
+        displayUpgrade("upgradeHireFarmhands2")
+        displayUpgrade("upgradeHireFarmhands3")
+    } else if (currentStory === "story12") {
+        stories["story12"]["resolved"] = true
+
+        //Mana upgrade here
     }
+    comprehensiveUpdate()
 }
 
 alertBtn.addEventListener("click", () => {
@@ -507,7 +528,7 @@ function updateResourceCounters() {
 function updateResourcePerSecondCounters() {
     cropsPerSecond = farms * cropsBaseProduction * cropMultiplier
     meatPerSecond = pastures * meatBaseProduction * meatMultiplier
-    manaPerSecond = Math.max((dragonSize - 3) * manaMultiplier, 0)
+    manaPerSecond = Math.max((dragonSize - 7) * manaMultiplier, 0) ** 2
 
     cropsPerSecondCounter.innerText = `Crops/sec: ${cropsPerSecond}`
     meatPerSecondCounter.innerText = `Meat/sec: ${meatPerSecond}`
@@ -517,7 +538,7 @@ function updateResourcePerSecondCounters() {
 function updateCostDisplay() {
     farmBtn.innerText = `Buy for ${farmCost} Poop`
     pastureBtn.innerText = `Buy for ${pastureCost} Crops`
-    dragonBtn.innerText = `Buy for ${dragonCost} Meat`
+    dragonBtn.innerText = `Feed for ${dragonCost} Meat`
 }
 
 function comprehensiveUpdate() {
@@ -561,7 +582,7 @@ dragonBtn.addEventListener("click", () => {
     if (meat >= dragonCost) {
         meat -= dragonCost
         dragonSize++
-        dragonCost = (dragonSize + 1) ** 4
+        dragonCost = (dragonSize) ** 4
         comprehensiveUpdate()
         updateDragonDescription()
         updateDragonImage()
@@ -575,9 +596,9 @@ let dragonStages = [
     "Its roars are tiny squeaks.",
     "Loves playing with its shadows.",
     "Keeps your home rat-free.",
-    "Voracious appetite.",
     "Portable lighter.",
     "Sprouting the Tiniest of Wings.",
+    "Voracious appetite.",
     "Breathes a gorgeous blue flame.",
     "Enjoys sunbathing on the roof.",
     "Its scales glisten like jewels in the light.",
@@ -595,10 +616,10 @@ let updateDragonDescription = () => {
 }
 
 let updateDragonImage = () => {
-    if (dragonSize >= 10) {
-        dragonIcon.src = "./src/dragon-2.svg"
-    } else if (dragonSize >= 15) {
+    if (dragonSize >= 15) {
         dragonIcon.src = "./src/dragon-3.svg"
+    } else if (dragonSize >= 8) {
+        dragonIcon.src = "./src/dragon-2.svg"
     }
 }
 
@@ -677,7 +698,7 @@ function resetStats() {
 
     farmCost = 10;
     pastureCost = 100;
-    dragonCost = 1000;
+    dragonCost = 1;
 }
 
 function purchaseUpgrade(upgradeName) {
@@ -708,60 +729,6 @@ function purchaseUpgrade(upgradeName) {
         markUpgradePurchase(upgradeName)
     }
 }
-
-// function purchaseUpgrade(upgradeName) {
-//     if (upgradeName === "upgradeBrownFingers" && haveUpgradeResources(upgradeName)) {
-//         deductUpgradeResources(upgradeName)
-//         cropsBaseProduction++
-//         markUpgradePurchase(upgradeName)
-//     } else if (upgradeName === "upgradeAgriculturalWasteComposting" && haveUpgradeResources(upgradeName)) {
-//         deductUpgradeResources(upgradeName)
-//         cropMultiplier *= 2
-//         markUpgradePurchase(upgradeName)
-//     } else if (upgradeName === "upgradeFibrePackedDiet" && haveUpgradeResources(upgradeName)) {
-//         deductUpgradeResources(upgradeName)
-//         poopMultiplier *= 2
-//         markUpgradePurchase(upgradeName)
-//     } else if (upgradeName === "upgradeProteinSufficiency" && haveUpgradeResources(upgradeName)) {
-//         deductUpgradeResources(upgradeName)
-//         poopMultiplier *= 2
-//         markUpgradePurchase(upgradeName)
-//     } else if (upgradeName === "upgradeSpecializedAnimalFeed" && haveUpgradeResources(upgradeName)) {
-//         deductUpgradeResources(upgradeName)
-//         meatBaseProduction++
-//         markUpgradePurchase(upgradeName)
-//     } else if (upgradeName === "upgradeBalancedDiet" && haveUpgradeResources(upgradeName)) {
-//         deductUpgradeResources(upgradeName)
-//         poopMultiplier *= 2
-//         markUpgradePurchase(upgradeName)
-//     } else if (upgradeName === "upgradeSelectiveBreeding" && haveUpgradeResources(upgradeName)) {
-//         deductUpgradeResources(upgradeName)
-//         meatMultiplier++
-//         markUpgradePurchase(upgradeName)
-//     } else if (upgradeName === "upgradeNutritionResearch" && haveUpgradeResources(upgradeName)) {
-//         deductUpgradeResources(upgradeName)
-//         meatMultiplier *= 2
-//         markUpgradePurchase(upgradeName)
-//     } else if (upgradeName === "upgradeHireFarmhands1" && haveUpgradeResources(upgradeName)) {
-//         deductUpgradeResources(upgradeName)
-//         cropMultiplier *= 2
-//         meatMultiplier *= 2
-//         markUpgradePurchase(upgradeName)
-//     } else if (upgradeName === "upgradeHireFarmhands2" && haveUpgradeResources(upgradeName)) {
-//         deductUpgradeResources(upgradeName)
-//         cropMultiplier *= 2
-//         meatMultiplier *= 2
-//         markUpgradePurchase(upgradeName)
-//     } else if (upgradeName === "upgradeHireFarmhands3" && haveUpgradeResources(upgradeName)) {
-//         deductUpgradeResources(upgradeName)
-//         cropMultiplier *= 2
-//         meatMultiplier *= 2
-//         markUpgradePurchase(upgradeName)
-//     } else {
-//         console.log(`Error: ${upgradeName} not found or insufficient resources.`)
-//     }
-// }
-
 
 // SET INTERVAL LOOP
 setInterval(() => {
