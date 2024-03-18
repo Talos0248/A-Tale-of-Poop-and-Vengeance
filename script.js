@@ -115,6 +115,13 @@ let stories = {
         "content": "<p>Word of your dragon's immense size and strength spread quickly throughout the region, reaching even the ears of the ruling council. A threat, no doubt, to their authority and control. Determined to maintain their grip on power, the council convened, a plot to quash any rebellion fast in the making, schemes devised and bounties placed to eradicate both you and the dragon.</p>",
         "btnTitle": "Mount a Counteroffensive",
         "btnDesc": "Wiser to Strike First"
+    },
+    "story16": {
+        "resolved": false,
+        "title": "The Time Has Come",
+        "content": "<p>Allies rallied and resources marshaled, you're prepared as can be for the battle ahead. With the first light of dawn painting the sky in hues of pink and gold, you and your assembled army set out towards the council's stronghold. </p>",
+        "btnTitle": "Sound the Horns",
+        "btnDesc": "The Battle has Begun"
     }
 }
 
@@ -514,8 +521,9 @@ function triggerStories() {
     } else if (!stories["story15"]["resolved"] && stories["story14"]["resolved"] && dragonSize >= 20) {
         currentStory = "story15"
         generateStoryPopup(currentStory, dangerColor)
-    } else if (stories["story15"]["resolved"] && upgrades["upgradeDrakeEmberArmor"]["purchased"] && upgrades["upgradeMercenaryConscription"]["purchased"] && upgrades["upgradeStockedGranaries"]["purchased"]) {
-        triggerEnding()
+    } else if (!stories["story16"]["resolved"] && stories["story15"]["resolved"] && upgrades["upgradeDrakeEmberArmor"]["purchased"] && upgrades["upgradeMercenaryConscription"]["purchased"] && upgrades["upgradeStockedGranaries"]["purchased"]) {
+        currentStory = "story16"
+        generateStoryPopup(currentStory, dangerColor)
     }
 }
 
@@ -613,6 +621,9 @@ function resolveStoryStates() {
         displayUpgrade("upgradeDrakeEmberArmor", "container-upgrade-item-danger")
         displayUpgrade("upgradeMercenaryConscription", "container-upgrade-item-danger")
         displayUpgrade("upgradeStockedGranaries", "container-upgrade-item-danger")
+    } else if (currentStory === "story16") {
+        stories["story16"]["resolved"] = true
+        triggerEnding()
     }
     comprehensiveUpdate()
 }
