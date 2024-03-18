@@ -253,6 +253,95 @@ let upgrades = {
         "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 0},
         "description": "x10 Poop per Click",
         "outcomeDictionary": {"poopMultiplier": 10}
+    },
+    "upgradeTelekinesis": {
+        "available": false,
+        "purchased": false,
+        "title": "Telekinesis",
+        "cost": "200 Mana",
+        "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 200},
+        "description": "x4 Poop per Click",
+    },
+    "upgradeManaFueledGrowth": {
+        "available": false,
+        "purchased": false,
+        "title": "Mana Fueled Growth",
+        "cost": "500 Mana",
+        "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 500},
+        "description": "x4 Crops Production",
+        "outcomeDictionary": {"cropMultiplier": 4}
+    },
+    "upgradeManaFacilitatedHerding": {
+        "available": false,
+        "purchased": false,
+        "title": "Mana Facilitated Herding",
+        "cost": "1000 Mana",
+        "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 1000},
+        "description": "x4 Meat/second",
+        "outcomeDictionary": {"meatMultiplier": 4}
+    },
+    "upgradeBoneFertilizer": {
+        "available": false,
+        "purchased": false,
+        "title": "Bone Fertilizer",
+        "cost": "Bones",
+        "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 0},
+        "description": "x4 Crops Production",
+        "outcomeDictionary": {"cropMultiplier": 4}
+    },
+    "upgradeProteinFortifiedFeed": {
+        "available": false,
+        "purchased": false,
+        "title": "Protein-Fortified Feed",
+        "cost": "Flesh",
+        "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 0},
+        "description": "x4 Meat Production",
+        "outcomeDictionary": {"meatMultiplier": 4}
+    },
+    "upgradeSoulmancy": {
+        "available": false,
+        "purchased": false,
+        "title": "Soulmancy",
+        "cost": "2000 Mana",
+        "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 2000},
+        "description": "x10 Meat Production",
+        "outcomeDictionary": {"meatMultiplier": 10}
+    },
+    "upgradeCorpseComposting": {
+        "available": false,
+        "purchased": false,
+        "title": "Corpse Composting",
+        "cost": "More Flesh",
+        "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 0},
+        "description": "x10 Crops Production",
+        "outcomeDictionary": {"cropMultiplier": 10}
+    },
+    "upgradeDrakeEmberArmor": {
+        "available": false,
+        "purchased": false,
+        "title": "Drake-ember Armor",
+        "cost": "10000 Mana",
+        "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 10000},
+        "description": "A Gleaming Symbol of Draconic Might",
+        "outcomeDictionary": {}
+    },
+    "upgradeMercenaryConscription": {
+        "available": false,
+        "purchased": false,
+        "title": "Mercenary Conscription",
+        "cost": "20000 Meat",
+        "costDictionary": {"poop": 0, "crops": 0, "meat": 20000, "mana": 0},
+        "description": "Rally Seasoned Fighters from Distant Lands",
+        "outcomeDictionary": {}
+    },
+    "upgradeStockedGranaries": {
+        "available": false,
+        "purchased": false,
+        "title": "Stocked Granaries",
+        "cost": "100000 Crops",
+        "costDictionary": {"poop": 0, "crops": 100000, "meat": 0, "mana": 0},
+        "description": "Sustenance for the Impending Conflict",
+        "outcomeDictionary": {}
     }
 }
 
@@ -374,7 +463,7 @@ function generateAlertPopup(title, content, btnTitle, btnDesc, color) {
 
 // ALERT POPUP HANDLING
 
-function generateStoryPopup(targetStory, color) {
+function generateStoryPopup(targetStory, color = poopColor) {
     let story = stories[targetStory]
     generateAlertPopup(story["title"], story["content"], story["btnTitle"], story["btnDesc"], color)
 }
@@ -416,7 +505,17 @@ function triggerStories() {
     } else if (!stories["story12"]["resolved"] && stories["story11"]["resolved"] && dragonSize >= 10) {
         currentStory = "story12"
         generateStoryPopup(currentStory, dragonColor)
-
+    } else if (!stories["story13"]["resolved"] && stories["story12"]["resolved"] && dragonSize >= 12) {
+        currentStory = "story13"
+        generateStoryPopup(currentStory, dangerColor)
+    } else if (!stories["story14"]["resolved"] && stories["story13"]["resolved"] && dragonSize >= 15) {
+        currentStory = "story14"
+        generateStoryPopup(currentStory, dangerColor)
+    } else if (!stories["story15"]["resolved"] && stories["story14"]["resolved"] && dragonSize >= 20) {
+        currentStory = "story15"
+        generateStoryPopup(currentStory, dangerColor)
+    } else if (stories["story15"]["resolved"] && upgrades["upgradeDrakeEmberArmor"]["purchased"] && upgrades["upgradeMercenaryConscription"]["purchased"] && upgrades["upgradeStockedGranaries"]["purchased"]) {
+        triggerEnding()
     }
 }
 
@@ -497,8 +596,23 @@ function resolveStoryStates() {
         displayUpgrade("upgradeHireFarmhands3")
     } else if (currentStory === "story12") {
         stories["story12"]["resolved"] = true
+        displayUpgrade("upgradeTelekinesis")
+        displayUpgrade("upgradeManaFueledGrowth")
+        displayUpgrade("upgradeManaFacilitatedHerding")
+    } else if (currentStory === "story13") {
+        stories["story13"]["resolved"] = true
+        displayUpgrade("upgradeBoneFertilizer")
+        displayUpgrade("upgradeProteinFortifiedFeed")
 
-        //Mana upgrade here
+    } else if (currentStory === "story14") {
+        stories["story14"]["resolved"] = true
+        displayUpgrade("upgradeSoulmancy")
+        displayUpgrade("upgradeCorpseComposting")
+    } else if (currentStory === "story15") {
+        stories["story15"]["resolved"] = true
+        displayUpgrade("upgradeDrakeEmberArmor", "container-upgrade-item-danger")
+        displayUpgrade("upgradeMercenaryConscription", "container-upgrade-item-danger")
+        displayUpgrade("upgradeStockedGranaries", "container-upgrade-item-danger")
     }
     comprehensiveUpdate()
 }
@@ -625,10 +739,12 @@ let updateDragonImage = () => {
 
 
 // PURCHASABLE UPGRADE HANDLING
-function displayUpgrade(upgradeName) {
-    // if (upgrades[upgradeName]["available"] && !upgrades[upgradeName]["purchased"]) {
+function displayUpgrade(upgradeName, optionalStyleClass = "") {
     let upgradeDiv = document.createElement('div');
-    upgradeDiv.className = 'container-upgrade-item';
+    upgradeDiv.className = 'container-upgrade-item container-upgrade-item-unpurchasable';
+    if (optionalStyleClass !== "") {
+        upgradeDiv.classList.add(optionalStyleClass)
+    }
     upgradeDiv.id = upgradeName;
     upgradeDiv.innerHTML = `
             <h3>${upgrades[upgradeName].title}</h3>
@@ -701,6 +817,19 @@ function resetStats() {
     dragonCost = 1;
 }
 
+function checkUpgradesPurchaseAvailability() {
+    //check if each upgrade in the upgrade div is purchasable, if yes, remove container-upgrade-item-unpurchasable. else, add it back. Upgrades are in upgradeContainer
+    let upgradeDivs = upgradesContainer.childNodes
+    for (let i = 0; i < upgradeDivs.length; i++) {
+        let upgradeName = upgradeDivs[i].id
+        if (haveUpgradeResources(upgradeName)) {
+            upgradeDivs[i].classList.remove("container-upgrade-item-unpurchasable")
+        } else {
+            upgradeDivs[i].classList.add("container-upgrade-item-unpurchasable")
+        }
+    }
+}
+
 function purchaseUpgrade(upgradeName) {
     if (haveUpgradeResources(upgradeName)) {
         let upgrade = upgrades[upgradeName]
@@ -727,13 +856,13 @@ function purchaseUpgrade(upgradeName) {
             manaMultiplier *= upgrade.outcomeDictionary["manaMultiplier"]
         }
         markUpgradePurchase(upgradeName)
+        checkUpgradesPurchaseAvailability()
     }
 }
 
 // SET INTERVAL LOOP
 setInterval(() => {
     if (!paused) {
-        // Update Counters
         triggerStories()
     }
     //Prevent Resource Counters Directly Updating after Alert Popup
@@ -743,5 +872,6 @@ setInterval(() => {
         updateResourcePerSecondCounters()
         addPerSecondResources()
         updateResourceCounters()
+        checkUpgradesPurchaseAvailability()
     }
 }, 1000)

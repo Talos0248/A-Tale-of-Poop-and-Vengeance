@@ -269,6 +269,17 @@ img, picture, svg, video {
     border-radius: 10px;
     box-shadow: 8px 8px 4px rgba(0, 0, 0, 20%);
     background-color: #f8ecc9;
+    border: 2px solid #826034
+}
+
+.container-upgrade-item-unpurchasable {
+    background-color: #e1e1e1;
+    border: 2px solid #cacaca;
+}
+
+.container-upgrade-item-danger {
+    background-color: #f8c9c9;
+    border: 2px solid #8B0000;
 }
 
 /*ALERT PANEL*/
