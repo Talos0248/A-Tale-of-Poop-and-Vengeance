@@ -115,6 +115,13 @@ let stories = {
         "content": "<p>Word of your dragon's immense size and strength spread quickly throughout the region, reaching even the ears of the ruling council. A threat, no doubt, to their authority and control. Determined to maintain their grip on power, the council convened, a plot to quash any rebellion fast in the making, schemes devised and bounties placed to eradicate both you and the dragon.</p>",
         "btnTitle": "Mount a Counteroffensive",
         "btnDesc": "Wiser to Strike First"
+    },
+    "story16": {
+        "resolved": false,
+        "title": "The Time Has Come",
+        "content": "<p>Allies rallied and resources marshaled, you're prepared as can be for the battle ahead. With the first light of dawn painting the sky in hues of pink and gold, you and your assembled army set out towards the council's stronghold. </p>",
+        "btnTitle": "Sound the Horns",
+        "btnDesc": "The Battle has Begun"
     }
 }
 
@@ -386,6 +393,9 @@ const alertBtnDesc = document.getElementById("alert-btn-description")
 
 const upgradesContainer = document.getElementById("container-upgrades")
 
+const endingPopup = document.getElementById("ending-popup")
+const endingContent = document.getElementById("ending-content")
+
 const poopColor = "#8B4513"
 const farmColor = "#006400"
 const pastureColor = "#8B0000"
@@ -514,8 +524,9 @@ function triggerStories() {
     } else if (!stories["story15"]["resolved"] && stories["story14"]["resolved"] && dragonSize >= 20) {
         currentStory = "story15"
         generateStoryPopup(currentStory, dangerColor)
-    } else if (stories["story15"]["resolved"] && upgrades["upgradeDrakeEmberArmor"]["purchased"] && upgrades["upgradeMercenaryConscription"]["purchased"] && upgrades["upgradeStockedGranaries"]["purchased"]) {
-        triggerEnding()
+    } else if (!stories["story16"]["resolved"] && stories["story15"]["resolved"] && upgrades["upgradeDrakeEmberArmor"]["purchased"] && upgrades["upgradeMercenaryConscription"]["purchased"] && upgrades["upgradeStockedGranaries"]["purchased"]) {
+        currentStory = "story16"
+        generateStoryPopup(currentStory, dangerColor)
     }
 }
 
@@ -613,6 +624,9 @@ function resolveStoryStates() {
         displayUpgrade("upgradeDrakeEmberArmor", "container-upgrade-item-danger")
         displayUpgrade("upgradeMercenaryConscription", "container-upgrade-item-danger")
         displayUpgrade("upgradeStockedGranaries", "container-upgrade-item-danger")
+    } else if (currentStory === "story16") {
+        stories["story16"]["resolved"] = true
+        triggerEnding()
     }
     comprehensiveUpdate()
 }
@@ -858,6 +872,104 @@ function purchaseUpgrade(upgradeName) {
         markUpgradePurchase(upgradeName)
         checkUpgradesPurchaseAvailability()
     }
+}
+
+// Endings
+endingParagraphs = [{"type": "title", "content": "The End of an Era Draws Near"},
+    {
+        "type": "paragraph",
+        "content": "The council did not anticipate such a swift and decisive response; the element of surprise proved to your advantage. Under your signal, your army surges forward, the sound of hooves pounding against the earth mingling with the roar of your dragon's wings overhead. The council's guards scramble to mount a defense against the tempestuous descent of your forces upon the stronghold, the clash of steel ringing out amidst the chaos of battle."
+    },
+    {
+        "type": "paragraph",
+        "content": "Two days. It took a mere two days for the stronghold to fall. The first day of the siege was marked by fierce skirmishes, the clang of steel on steel intertwined with the shouts of warriors; by nightfall, the outer walls had been breached, and your army stood poised to launch a final assault on the inner sanctum. On the second day, the battle raged on within the narrow confines of the inner courtyard. Despite the council's desperate attempts to hold their ground, they were no match for the combined might of your army and the dragon. Hour by hour their defenses were whittled down, and then — just as the sun reached its zenith in the sky — crushed, entirely between your feet."
+    },
+    {
+        "type": "paragraph",
+        "content": "As you stride into the council chambers, a heavy silence hangs in the air, broken only by the echoing footsteps of your boots against the stone floor. The council members, their faces twisted with fear and desperation, raise their hands in a futile gesture of surrender. Some fall to their knees, their voices choked with tears as they beg for clemency. Others stumble over their words, pleas jumbled and incomprehensible in their panic."
+    },
+    {
+        "type": "emphasis",
+        "content": "A futile gesture."
+    },
+    {
+        "type": "paragraph",
+        "content": "You raise a hand to signal your dragon, and instantly, a deafening silence engulfs you, pleas for mercy cut short in a blast of acrid smoke and hellfire. It was their treachery that had set your farms and pastures ablaze, destroying everything you had worked so hard to build. And now, justice has been served, the scales evened. With the council defeated and their stronghold in ruins, a new era dawns for the land. Only time will tell if you end up a champion of the people or an iron-fisted tyrant, but one thing is for certain:"
+    },
+    {"type": "punchline", "content": "You have found your vengeance."},
+    {
+        "type": "footer",
+        "content": "Thank you for playing <3"
+    }]
+
+function typewriterEffect(text, targetElement, callback, speed = 20) {
+    let i = 0;
+
+    function type() {
+        if (i < text.length) {
+            targetElement.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        } else {
+            callback(); // Call the callback when typing is finished
+        }
+    }
+
+    type(); // Start typing
+}
+
+function fadeInEffect(text, targetElement, callback, speed = 20) {
+    let i = 0;
+    targetElement.style.opacity = 0;
+    targetElement.innerHTML = text;
+
+    function fadeIn() {
+        if (i < 1) {
+            i += 0.01;
+            targetElement.style.opacity = i;
+            setTimeout(fadeIn, speed);
+        } else {
+            callback(); // Call the callback when fading is finished
+        }
+    }
+
+    fadeIn(); // Start fading
+
+}
+
+function triggerEnding() {
+    endingPopup.classList.remove("hidden");
+    let index = 0; // To keep track of which paragraph to display
+    function displayNextParagraph() {
+        if (index < endingParagraphs.length) {
+            let paragraph = endingParagraphs[index];
+            let p = document.createElement("p");
+            if (paragraph["type"] === "emphasis") {
+                p.style.fontStyle = "italic";
+            } else if (paragraph["type"] === "punchline" || paragraph["type"] === "title") {
+                p.classList.add("text-vengeance");
+
+            } else if (paragraph["type"] === "footer") {
+                p.classList.add("text-footer");
+            }
+
+            if (paragraph["type"] === "title" || paragraph["type"] === "punchline" || paragraph["type"] === "footer") {
+                fadeInEffect(paragraph["content"], p, function () {
+                    index++; // Move to the next paragraph after typing completes
+                    displayNextParagraph(); // Recursively display the next paragraph
+                });
+            } else {
+                typewriterEffect(paragraph["content"], p, function () {
+                    index++; // Move to the next paragraph after typing completes
+                    displayNextParagraph(); // Recursively display the next paragraph
+                }, 30);
+            }
+
+            endingContent.appendChild(p);
+        }
+    }
+
+    displayNextParagraph(); // Start displaying paragraphs
 }
 
 // SET INTERVAL LOOP
