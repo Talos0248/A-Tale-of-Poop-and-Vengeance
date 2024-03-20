@@ -275,8 +275,8 @@ let upgrades = {
         "title": "Mana Fueled Growth",
         "cost": "500 Mana",
         "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 500},
-        "description": "x4 Crops Production",
-        "outcomeDictionary": {"cropMultiplier": 4}
+        "description": "x2 Crops Production",
+        "outcomeDictionary": {"cropMultiplier": 2}
     },
     "upgradeManaFacilitatedHerding": {
         "available": false,
@@ -284,8 +284,8 @@ let upgrades = {
         "title": "Mana Facilitated Herding",
         "cost": "1000 Mana",
         "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 1000},
-        "description": "x4 Meat/second",
-        "outcomeDictionary": {"meatMultiplier": 4}
+        "description": "x2 Meat/second",
+        "outcomeDictionary": {"meatMultiplier": 2}
     },
     "upgradeBoneFertilizer": {
         "available": false,
@@ -293,8 +293,8 @@ let upgrades = {
         "title": "Bone Fertilizer",
         "cost": "Bones",
         "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 0},
-        "description": "x4 Crops Production",
-        "outcomeDictionary": {"cropMultiplier": 4}
+        "description": "x2 Crops Production",
+        "outcomeDictionary": {"cropMultiplier": 2}
     },
     "upgradeProteinFortifiedFeed": {
         "available": false,
@@ -302,8 +302,8 @@ let upgrades = {
         "title": "Protein-Fortified Feed",
         "cost": "Flesh",
         "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 0},
-        "description": "x4 Meat Production",
-        "outcomeDictionary": {"meatMultiplier": 4}
+        "description": "x2 Meat Production",
+        "outcomeDictionary": {"meatMultiplier": 2}
     },
     "upgradeSoulmancy": {
         "available": false,
@@ -311,8 +311,8 @@ let upgrades = {
         "title": "Soulmancy",
         "cost": "2000 Mana",
         "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 2000},
-        "description": "x10 Meat Production",
-        "outcomeDictionary": {"meatMultiplier": 10}
+        "description": "x5 Meat Production",
+        "outcomeDictionary": {"meatMultiplier": 5}
     },
     "upgradeCorpseComposting": {
         "available": false,
@@ -320,8 +320,8 @@ let upgrades = {
         "title": "Corpse Composting",
         "cost": "More Flesh",
         "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 0},
-        "description": "x10 Crops Production",
-        "outcomeDictionary": {"cropMultiplier": 10}
+        "description": "x5 Crops Production",
+        "outcomeDictionary": {"cropMultiplier": 5}
     },
     "upgradeDrakeEmberArmor": {
         "available": false,
@@ -368,6 +368,7 @@ const pastureBtn = document.getElementById("btn-pasture")
 const pastureBuildingCtr = document.getElementById("building-ctr-pasture")
 const dragonBtn = document.getElementById("btn-dragon")
 const dragonSizeCtr = document.getElementById("building-ctr-dragon")
+const dragonTitle = document.getElementById("title-dragon")
 const dragonDescription = document.getElementById("resource-description-dragon")
 const dragonIcon = document.getElementById("resource-icon-dragon")
 
@@ -395,6 +396,7 @@ const upgradesContainer = document.getElementById("container-upgrades")
 
 const endingPopup = document.getElementById("ending-popup")
 const endingContent = document.getElementById("ending-content")
+const endingButton = document.getElementById("ending-btn")
 
 const poopColor = "#8B4513"
 const farmColor = "#006400"
@@ -610,6 +612,7 @@ function resolveStoryStates() {
         displayUpgrade("upgradeTelekinesis")
         displayUpgrade("upgradeManaFueledGrowth")
         displayUpgrade("upgradeManaFacilitatedHerding")
+        manaCounterContainer.classList.remove("hidden")
     } else if (currentStory === "story13") {
         stories["story13"]["resolved"] = true
         displayUpgrade("upgradeBoneFertilizer")
@@ -735,6 +738,7 @@ let dragonStages = [
     "A legendary force to be reckoned with."
 ]
 
+
 let updateDragonDescription = () => {
     if (dragonSize < dragonStages.length) {
         dragonDescription.innerText = dragonStages[dragonSize - 1]
@@ -743,10 +747,12 @@ let updateDragonDescription = () => {
     }
 }
 
-let updateDragonImage = () => {
+let updateDragonImageAndTitle = () => {
     if (dragonSize >= 15) {
+        dragonTitle.innerText = "Dragon"
         dragonIcon.src = "./src/dragon-3.svg"
     } else if (dragonSize >= 8) {
+        dragonTitle.innerText = "Drake"
         dragonIcon.src = "./src/dragon-2.svg"
     }
 }
@@ -941,16 +947,19 @@ function triggerEnding() {
     endingPopup.classList.remove("hidden");
     let index = 0; // To keep track of which paragraph to display
     function displayNextParagraph() {
-        if (index < endingParagraphs.length) {
+        if (index < endingParagraphs.length) { //Callback until the last paragraph happens
             let paragraph = endingParagraphs[index];
             let p = document.createElement("p");
+            p.classList.add("ending-paragraph");
             if (paragraph["type"] === "emphasis") {
                 p.style.fontStyle = "italic";
             } else if (paragraph["type"] === "punchline" || paragraph["type"] === "title") {
                 p.classList.add("text-vengeance");
+                p.style.textAlign = "center";
 
             } else if (paragraph["type"] === "footer") {
                 p.classList.add("text-footer");
+                p.style.textAlign = "right";
             }
 
             if (paragraph["type"] === "title" || paragraph["type"] === "punchline" || paragraph["type"] === "footer") {
@@ -962,15 +971,22 @@ function triggerEnding() {
                 typewriterEffect(paragraph["content"], p, function () {
                     index++; // Move to the next paragraph after typing completes
                     displayNextParagraph(); // Recursively display the next paragraph
-                }, 30);
+                }, 25);
             }
-
             endingContent.appendChild(p);
+        } else {
+            endingButton.classList.remove("hidden");
         }
     }
 
     displayNextParagraph(); // Start displaying paragraphs
 }
+
+endingButton.addEventListener("click", () => {
+    endingPopup.classList.add("hidden");
+    comprehensiveUpdate()
+    enableButtons()
+})
 
 // SET INTERVAL LOOP
 setInterval(() => {

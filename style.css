@@ -54,12 +54,12 @@ img, picture, svg, video {
 }
 
 /*BUTTON HOVERS*/
-.alert-btn:hover, .resource-btn:hover, .container-upgrade-item:hover {
+.alert-btn:hover, .resource-btn:hover, .container-upgrade-item:hover, .ending-btn:hover {
     filter: brightness(90%);
 }
 
 /*BUTTON CLICKS*/
-.alert-btn:active, .resource-btn:active, .container-upgrade-item:active {
+.alert-btn:active, .resource-btn:active, .container-upgrade-item:active .ending-btn:active {
     filter: brightness(80%);
 }
 
@@ -372,8 +372,42 @@ img, picture, svg, video {
     animation: BurningFire 29s ease infinite;
 }
 
+.ending-panel {
+    position: fixed;
+    height: 100vh;
+    top: 50%;
+    left: 50%;
+    width: min(90%, 1200px);
+    transform: translate(-50%, -50%);
+    overflow-y: auto;
+
+    background-color: rgba(255, 255, 255, 0.36);
+    box-shadow: 0 0 0 10px hsl(0, 0%, 80%),
+    0 0 0 15px hsl(0, 0%, 90%);
+
+    text-align: center;
+    padding: 10px;
+    font-family: "Open Sans", serif;
+}
+
 .ending-content {
     padding: 0 max(15%, 50px);
+    text-align: justify;
+    line-height: 1.8;
+}
+
+.ending-paragraph {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.ending-btn {
+    width: max(40%, 250px);
+    height: 50px;
+    margin: 30px auto;
+    border-radius: 10px;
+    border: none;
+    background-color: #ffdd00;
 }
 
 @-webkit-keyframes BurningFire {
@@ -412,22 +446,6 @@ img, picture, svg, video {
     }
 }
 
-.ending-panel {
-    position: fixed;
-    height: 100vh;
-    top: 50%;
-    left: 50%;
-    width: min(90%, 1200px);
-    transform: translate(-50%, -50%);
-    overflow-y: auto;
-
-    background-color: rgba(0, 0, 0, 0.36);
-
-    text-align: center;
-    padding: 10px;
-    font-family: "Open Sans", serif;
-}
-
 
 /*SWITCHABLE BACKGROUNDS*/
 html {
@@ -439,4 +457,27 @@ html {
     radial-gradient(100% 100% at 0 0, var(--_l)) var(--s) var(--s),
     radial-gradient(100% 100%, #0000 22%, var(--c) 23% 29%, #0000 30% 34%, var(--c) 35% 41%, #0000 42%) #F8ECC9;
     background-size: calc(var(--s) * 2) calc(var(--s) * 2);
+}
+
+/* COOL SCROLLBAR */
+.cool-scrollbar::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
+}
+
+.cool-scrollbar::-webkit-scrollbar {
+    width: 10px;
+    background-color: #F5F5F5;
+}
+
+.cool-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #F90;
+    background-image: -webkit-linear-gradient(90deg,
+    rgba(255, 255, 255, .2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, .2) 50%,
+    rgba(255, 255, 255, .2) 75%,
+    transparent 75%,
+    transparent)
 }
