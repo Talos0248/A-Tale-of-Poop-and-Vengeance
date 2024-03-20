@@ -56,6 +56,7 @@ img, picture, svg, video {
 /*BUTTON HOVERS*/
 .alert-btn:hover, .resource-btn:hover, .container-upgrade-item:hover, .ending-btn:hover {
     filter: brightness(90%);
+    cursor: pointer;
 }
 
 /*BUTTON CLICKS*/
