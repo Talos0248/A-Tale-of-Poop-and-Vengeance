@@ -406,8 +406,8 @@ img, picture, svg, video {
     height: 50px;
     margin: 30px auto;
     border-radius: 10px;
-    border: none;
-    background-color: #ffdd00;
+    border: 2px solid #8B0000;
+    background-color: rgba(255, 223, 223, 0.58);
 }
 
 @-webkit-keyframes BurningFire {

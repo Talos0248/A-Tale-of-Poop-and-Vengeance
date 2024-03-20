@@ -240,8 +240,8 @@ let upgrades = {
         "title": "Hire More Farmhands",
         "cost": "25000 Crops, 2500 Meat",
         "costDictionary": {"poop": 0, "crops": 25000, "meat": 2500, "mana": 0},
-        "description": "x3 Farm and Pasture Production",
-        "outcomeDictionary": {"cropMultiplier": 3, "meatMultiplier": 3}
+        "description": "x2 Farm and Pasture Production",
+        "outcomeDictionary": {"cropMultiplier": 2, "meatMultiplier": 2}
     },
     "upgradeHireFarmhands3": {
         "available": false,
@@ -249,8 +249,8 @@ let upgrades = {
         "title": "Hire a Lot More Farmhands",
         "cost": "100000 Crops, 10000 Meat",
         "costDictionary": {"poop": 0, "crops": 50000, "meat": 5000, "mana": 0},
-        "description": "x4 Farm and Pasture Production",
-        "outcomeDictionary": {"cropMultiplier": 4, "meatMultiplier": 4}
+        "description": "x2 Farm and Pasture Production",
+        "outcomeDictionary": {"cropMultiplier": 2, "meatMultiplier": 2}
     },
     "upgradeMuscleMemory": {
         "available": false,
@@ -268,6 +268,7 @@ let upgrades = {
         "cost": "200 Mana",
         "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 200},
         "description": "x4 Poop per Click",
+        "outcomeDictionary": {"poopMultiplier": 4}
     },
     "upgradeManaFueledGrowth": {
         "available": false,
@@ -311,8 +312,8 @@ let upgrades = {
         "title": "Soulmancy",
         "cost": "2000 Mana",
         "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 2000},
-        "description": "x5 Meat Production",
-        "outcomeDictionary": {"meatMultiplier": 5}
+        "description": "x2 Meat Production",
+        "outcomeDictionary": {"meatMultiplier": 2}
     },
     "upgradeCorpseComposting": {
         "available": false,
@@ -320,15 +321,15 @@ let upgrades = {
         "title": "Corpse Composting",
         "cost": "More Flesh",
         "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 0},
-        "description": "x5 Crops Production",
-        "outcomeDictionary": {"cropMultiplier": 5}
+        "description": "x2 Crops Production",
+        "outcomeDictionary": {"cropMultiplier": 2}
     },
     "upgradeDrakeEmberArmor": {
         "available": false,
         "purchased": false,
         "title": "Drake-ember Armor",
-        "cost": "10000 Mana",
-        "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 10000},
+        "cost": "20000 Mana",
+        "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 20000},
         "description": "A Gleaming Symbol of Draconic Might",
         "outcomeDictionary": {}
     },
@@ -336,8 +337,8 @@ let upgrades = {
         "available": false,
         "purchased": false,
         "title": "Mercenary Conscription",
-        "cost": "20000 Meat",
-        "costDictionary": {"poop": 0, "crops": 0, "meat": 20000, "mana": 0},
+        "cost": "420000 Meat",
+        "costDictionary": {"poop": 0, "crops": 0, "meat": 420000, "mana": 0},
         "description": "Rally Seasoned Fighters from Distant Lands",
         "outcomeDictionary": {}
     },
@@ -345,8 +346,8 @@ let upgrades = {
         "available": false,
         "purchased": false,
         "title": "Stocked Granaries",
-        "cost": "100000 Crops",
-        "costDictionary": {"poop": 0, "crops": 100000, "meat": 0, "mana": 0},
+        "cost": "4200000 Crops",
+        "costDictionary": {"poop": 0, "crops": 4200000, "meat": 0, "mana": 0},
         "description": "Sustenance for the Impending Conflict",
         "outcomeDictionary": {}
     }
@@ -716,7 +717,7 @@ dragonBtn.addEventListener("click", () => {
         dragonCost = (dragonSize) ** 4
         comprehensiveUpdate()
         updateDragonDescription()
-        updateDragonImage()
+        updateDragonImageAndTitle()
     }
 })
 
