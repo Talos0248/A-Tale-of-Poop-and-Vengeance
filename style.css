@@ -353,6 +353,11 @@ img, picture, svg, video {
     font-size: 18px;
 }
 
+.alert-btn-description {
+    font-size: 14px;
+    font-style: italic;
+}
+
 /*ENDING*/
 .ending-popup {
     z-index: 2;
