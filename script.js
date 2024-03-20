@@ -728,7 +728,7 @@ let dragonStages = [
     "Its roars are tiny squeaks.",
     "Loves playing with its shadows.",
     "Keeps your home rat-free.",
-    "Portable lighter.",
+    "Portable living lighter.",
     "Sprouting the Tiniest of Wings.",
     "Voracious appetite.",
     "Breathes a gorgeous blue flame.",
