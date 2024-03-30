@@ -407,6 +407,7 @@ const cropsResourceCounter = document.getElementById("ctr-crops")
 const meatResourceCounter = document.getElementById("ctr-meat")
 const manaResourceCounter = document.getElementById("ctr-mana")
 
+const poopPerSecondCounter = document.getElementById("ctr-poop-per-sec")
 const cropsPerSecondCounter = document.getElementById("ctr-crops-per-sec")
 const meatPerSecondCounter = document.getElementById("ctr-meat-per-sec")
 const manaPerSecondCounter = document.getElementById("ctr-mana-per-sec")
@@ -419,6 +420,9 @@ const alertBtnTitle = document.getElementById("alert-btn-title")
 const alertBtnDesc = document.getElementById("alert-btn-description")
 
 const upgradesContainer = document.getElementById("container-upgrades")
+const upgradesPurchasedContainer = document.getElementById("container-upgrades-purchased")
+const viewAvailableBtn = document.getElementById("btn-view-available")
+const viewPurchasedBtn = document.getElementById("btn-view-purchased")
 
 const endingPopup = document.getElementById("ending-popup")
 const endingContent = document.getElementById("ending-content")
@@ -437,6 +441,7 @@ let paused = false
 let poop = 0
 let poopMultiplier = 1
 let poopPerClick = 1
+let poopPerSecond = 0
 
 let farms = 0
 let crops = 0
@@ -702,9 +707,16 @@ function addPerSecondResources() {
 
 // RESOURCE BUTTON EVENT LISTENERS
 poopBtn.addEventListener("click", () => {
-    poop += poopPerClick * poopMultiplier;
+    let addedPoop = poopPerClick * poopMultiplier
+    poop += addedPoop;
     poopResourceCounter.innerText = `Poop: ${poop}`
+    poopPerSecond += addedPoop
 })
+
+function updatePoopPerSecondCounter() {
+    poopPerSecondCounter.innerText = `Poop/sec: ${poopPerSecond}`;
+    poopPerSecond = 0;
+}
 
 farmBtn.addEventListener("click", () => {
     if (poop >= farmCost) {
@@ -774,6 +786,20 @@ let updateDragonImageAndTitle = () => {
 
 
 // PURCHASABLE UPGRADE HANDLING
+viewPurchasedBtn.addEventListener("click", () => {
+    upgradesContainer.classList.add("hidden")
+    upgradesPurchasedContainer.classList.remove("hidden")
+    viewPurchasedBtn.classList.add("upgrade-btn-active")
+    viewAvailableBtn.classList.remove("upgrade-btn-active")
+})
+
+viewAvailableBtn.addEventListener("click", () => {
+    upgradesPurchasedContainer.classList.add("hidden")
+    upgradesContainer.classList.remove("hidden")
+    viewAvailableBtn.classList.add("upgrade-btn-active")
+    viewPurchasedBtn.classList.remove("upgrade-btn-active")
+})
+
 function displayUpgrade(upgradeName, optionalStyleClass = "") {
     let upgradeDiv = document.createElement('div');
     upgradeDiv.className = 'container-upgrade-item container-upgrade-item-unpurchasable';
@@ -873,9 +899,10 @@ function resetUpgrades() {
     for (let upgrade in upgrades) {
         upgrades[upgrade].available = false
         upgrades[upgrade].purchased = false
-        upgradesContainer.innerHTML = ""
-        upgradeElements = []
     }
+    upgradesContainer.innerHTML = ""
+    upgradesPurchasedContainer.innerHTML = ""
+    upgradeElements = []
 }
 
 function resetStats() {
@@ -923,6 +950,16 @@ function checkUpgradesPurchaseAvailability() {
     }
 }
 
+function addUpgradesToPurchasedContainer(upgrade) {
+    let upgradeDiv = document.createElement('div');
+    upgradeDiv.className = 'container-upgrade-item container-upgrade-item-purchased';
+    upgradeDiv.innerHTML = `
+            <h3>${upgrade.title}</h3>
+            <p>${upgrade.description}</p>
+            <p><i>Cost: ${upgrade.cost}</i></p>`;
+    upgradesPurchasedContainer.appendChild(upgradeDiv);
+}
+
 function purchaseUpgrade(upgradeName) {
     if (haveUpgradeResources(upgradeName)) {
         let upgrade = upgrades[upgradeName]
@@ -949,6 +986,7 @@ function purchaseUpgrade(upgradeName) {
             manaMultiplier *= upgrade.outcomeDictionary["manaMultiplier"]
         }
         markUpgradePurchase(upgradeName)
+        addUpgradesToPurchasedContainer(upgrade)
         checkUpgradesPurchaseAvailability()
     }
 }
@@ -1058,7 +1096,6 @@ function triggerEnding() {
 endingButton.addEventListener("click", () => {
     endingPopup.classList.add("hidden");
     comprehensiveUpdate()
-    enableButtons()
 })
 
 // SET INTERVAL LOOP
@@ -1069,6 +1106,7 @@ setInterval(() => {
     //Prevent Resource Counters Directly Updating after Alert Popup
     if (!paused) {
         // Update Counters
+        updatePoopPerSecondCounter()
         updateBuildingCounters()
         updateResourcePerSecondCounters()
         addPerSecondResources()

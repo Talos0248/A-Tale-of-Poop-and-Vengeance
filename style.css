@@ -54,14 +54,22 @@ img, picture, svg, video {
 }
 
 /*BUTTON HOVERS*/
-.alert-btn:hover, .resource-btn:hover, .container-upgrade-item:hover, .ending-btn:hover {
+.alert-btn:hover, .resource-btn:hover, .container-upgrade-item:hover, .ending-btn:hover,
+.btn-view-available:hover, .btn-view-purchased:hover {
     filter: brightness(90%);
     cursor: pointer;
 }
 
 /*BUTTON CLICKS*/
-.alert-btn:active, .resource-btn:active, .container-upgrade-item:active .ending-btn:active {
+.alert-btn:active, .resource-btn:active, .container-upgrade-item:active .ending-btn:active,
+.btn-view-available:active, .btn-view-purchased:active {
     filter: brightness(80%);
+}
+
+.container-upgrade-item-purchased:active, .container-upgrade-item-purchased:hover,
+.upgrade-btn-active:hover, .upgrade-btn-active:active {
+    filter: none;
+    cursor: default;
 }
 
 /*PROJECT STYLING*/
@@ -152,7 +160,8 @@ img, picture, svg, video {
 }
 
 .panel-poop .resource-title,
-.panel-poop .resource-description {
+.panel-poop .resource-description,
+.ctr-poop-per-sec {
     color: #826034;
 }
 
@@ -160,7 +169,7 @@ img, picture, svg, video {
     background-color: #826034;
 }
 
-.panel-poop .resource-title, .ctr-poop {
+.panel-poop .resource-title, .ctr-poop, .ctr-poop-per-sec {
     font-family: "Madimi One", sans-serif;
 }
 
@@ -239,7 +248,7 @@ img, picture, svg, video {
 }
 
 /*LOG AND UPGRADES*/
-.info-panel {
+.upgrades-panel {
     text-align: center;
 }
 
@@ -252,15 +261,17 @@ img, picture, svg, video {
     height: 250px;
 }
 
-.container-upgrades, .view-available-btn, .view-purchased-btn {
+.container-upgrades, .container-upgrades-purchased {
     background-color: rgba(255, 241, 213, 0.48);
     border: 2px solid rgba(130, 96, 52, 0.2);
 }
 
-.container-upgrades {
+.container-upgrades, .container-upgrades-purchased {
     height: 560px;
     overflow-y: auto;
     border-bottom: none;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
 .upgrades-header {
@@ -269,13 +280,21 @@ img, picture, svg, video {
     margin-bottom: 10px;
 }
 
-.container-upgrade-item {
+.container-upgrade-item, .container-upgrade-item-purchased {
     margin: 10px;
     padding: 10px;
     border-radius: 10px;
     box-shadow: 8px 8px 4px rgba(0, 0, 0, 20%);
+}
+
+.container-upgrade-item {
     background-color: #f8ecc9;
-    border: 2px solid #826034
+    border: 2px solid #826034;
+}
+
+.container-upgrade-item-purchased {
+    background-color: #f2ff9c;
+    border: 2px solid #00b700;
 }
 
 .container-upgrade-item-unpurchasable {
@@ -293,20 +312,31 @@ img, picture, svg, video {
     justify-content: space-between;
 }
 
-.view-available-btn, .view-purchased-btn {
+.btn-view-available, .btn-view-purchased {
     width: 500%;
     height: 40px;
     margin: 0;
-    border-top: none;
     font-family: "Courier New", sans-serif;
     font-size: 1em;
-    font-weight: 900;
 }
 
-.upgrade-btn-inactive {
+.btn-view-available {
+    border-bottom-left-radius: 20px;
     background-color: #f8ecc9;
     border: 2px solid #a08768;
-    font-weight: normal;
+}
+
+.btn-view-purchased {
+    border-bottom-right-radius: 20px;
+    background-color: #f2ff9c;
+    border: 2px solid #c1cc77;
+}
+
+.upgrade-btn-active {
+    font-weight: 900;
+    background-color: rgba(255, 241, 213, 0.48);
+    border: 2px solid rgba(130, 96, 52, 0.2);
+    border-top: none;
 }
 
 /*ALERT PANEL*/
@@ -512,4 +542,8 @@ html {
     rgba(255, 255, 255, .2) 75%,
     transparent 75%,
     transparent)
+}
+
+.cool-scrollbar-purchased::-webkit-scrollbar-track {
+    background-color: #00ea00;
 }

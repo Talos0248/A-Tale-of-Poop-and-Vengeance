@@ -58,7 +58,7 @@
         <div class="grid container-resource-storage">
             <div class="resource-storage">
                 <p class="resource-name ctr-poop" id="ctr-poop">Poop: 0</p>
-                <p class="resource-per-sec ctr-poop-per-sec"></p>
+                <p class="resource-per-sec ctr-poop-per-sec" id="ctr-poop-per-sec">Poop/sec: 0</p>
             </div>
             <div class="resource-storage hidden" id="container-ctr-crops">
                 <p class="resource-name ctr-crops" id="ctr-crops">Crops: 0</p>
@@ -79,15 +79,15 @@
         <!--            <h3 class="label-heading">Log</h3>-->
         <!--            <div class="container-log"></div>-->
         <!--        </div>-->
-        <div class="info-panel">
+        <div class="upgrades-panel">
             <h3 class="label-heading upgrades-header">Upgrades</h3>
-            <hr>
             <div class="container-upgrades cool-scrollbar" id="container-upgrades"></div>
-            <div class="container-upgrades-purchased cool-scrollbar hidden" id="container-upgrades-purchased"></div>
+            <div class="container-upgrades-purchased cool-scrollbar cool-scrollbar-purchased hidden"
+                 id="container-upgrades-purchased"></div>
             <div class="upgrade-btn-container">
-                <button class="view-available-btn" id="view-available-btn"><span>Available</span></button>
-                <button class="view-purchased-btn upgrade-btn-inactive" id="view-purchased-btn">
-                    <span>Purchased</span></button>
+                <button class="btn-view-available upgrade-btn-active" id="btn-view-available"><span>Available</span>
+                </button>
+                <button class="btn-view-purchased" id="btn-view-purchased"><span>Purchased</span></button>
             </div>
         </div>
     </div>
