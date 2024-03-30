@@ -663,7 +663,7 @@ alertBtn.addEventListener("click", () => {
 
 // PAGE ELEMENT UPDATE HANDLING
 function updateBuildingCounters() {
-    poopPerClickCtr.innerText = `Poop/click: ${poopPerClick * poopMultiplier}`
+    poopPerClickCtr.innerText = `Poop/click: ${addValuePrefix(poopPerClick * poopMultiplier)}`
     farmBuildingCtr.innerText = `Owned: ${farms}`
     pastureBuildingCtr.innerText = `Owned: ${pastures}`
     dragonSizeCtr.innerText = `Size: ${dragonSize}`
@@ -673,7 +673,7 @@ function addValuePrefix(value) {
     if (value >= 1000000) {
         return `${(value / 1000000).toFixed(2)}M`
     } else if (value >= 1000) {
-        return `${(value / 1000).toFixed(2)}K`
+        return `${(value / 1000).toFixed(2)}k`
     } else {
         return value
     }
@@ -719,12 +719,12 @@ function addPerSecondResources() {
 poopBtn.addEventListener("click", () => {
     let addedPoop = poopPerClick * poopMultiplier
     poop += addedPoop;
-    poopResourceCounter.innerText = `Poop: ${poop}`
+    poopResourceCounter.innerText = `Poop: ${addValuePrefix(poop)}`
     poopPerSecond += addedPoop
 })
 
 function updatePoopPerSecondCounter() {
-    poopPerSecondCounter.innerText = `Poop/sec: ${poopPerSecond}`;
+    poopPerSecondCounter.innerText = `Poop/sec: ${addValuePrefix(poopPerSecond)}`;
     poopPerSecond = 0;
 }
 
