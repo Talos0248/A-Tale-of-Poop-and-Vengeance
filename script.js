@@ -460,20 +460,23 @@ let farmCost = 10;
 let pastureCost = 100;
 let dragonCost = 1;
 
-//Functions
-function enableButtons() {
-    poopBtn.disabled = false
-    farmBtn.disabled = false
-    pastureBtn.disabled = false
-    dragonBtn.disabled = false
-}
+let upgradeElements = [];
 
-function disableButtons() {
-    poopBtn.disabled = true
-    farmBtn.disabled = true
-    pastureBtn.disabled = true
-    dragonBtn.disabled = true
-}
+//Functions
+//UNUSED? Forgot what these were for lol
+// function enableButtons() {
+//     poopBtn.disabled = false
+//     farmBtn.disabled = false
+//     pastureBtn.disabled = false
+//     dragonBtn.disabled = false
+// }
+//
+// function disableButtons() {
+//     poopBtn.disabled = true
+//     farmBtn.disabled = true
+//     pastureBtn.disabled = true
+//     dragonBtn.disabled = true
+// }
 
 function enablePurchaseButtons() {
     farmBtn.disabled = farms >= farmCost
@@ -792,6 +795,7 @@ function displayUpgrade(upgradeName, optionalStyleClass = "") {
         upgradeDiv.classList.add(optionalStyleClass)
     }
     upgradeDiv.id = upgradeName;
+    upgradeDiv.priority = upgrades[upgradeName].priority;
     upgradeDiv.innerHTML = `
             <h3>${upgrades[upgradeName].title}</h3>
             <p>${upgrades[upgradeName].description}</p>
@@ -799,12 +803,14 @@ function displayUpgrade(upgradeName, optionalStyleClass = "") {
     upgradeDiv.onclick = function () {
         purchaseUpgrade(upgradeName);
     };
-    upgradesContainer.appendChild(upgradeDiv);
-    // }
+    // upgradesContainer.appendChild(upgradeDiv);
+    upgradeElements.push(upgradeDiv);
+    updateUpgradesContainer(sortUpgradesByPriority(upgradeElements));
 }
 
 
 function haveUpgradeResources(upgradeName) {
+
     let upgrade = upgrades[upgradeName]
     return poop >= upgrade.costDictionary["poop"] &&
         crops >= upgrade.costDictionary["crops"] &&
@@ -821,20 +827,28 @@ function deductUpgradeResources(upgradeName) {
 }
 
 function markUpgradePurchase(upgradeName) {
+    if (!upgrades.hasOwnProperty(upgradeName)) {
+        return;
+    }
+
     upgrades[upgradeName].purchased = true;
     updateResourceCounters()
     updateResourcePerSecondCounters()
-    let element = document.getElementById(upgradeName);
-    upgradesContainer.removeChild(element);
+
+    // Remove the purchased upgrade from upgradeElements array
+    upgradeElements = upgradeElements.filter(upgrade => upgrade.id !== upgradeName);
+
+    // Update the upgrades container
+    updateUpgradesContainer(sortUpgradesByPriority(upgradeElements));
 }
 
 function sortUpgradesByPriority(upgrades) {
-    // Sort upgrade elements by purchasability and priority
-    upgrades.sort(function (a, b) {
-        // Extract upgrade objects from the upgrades container
-        const upgradeA = upgrades[a.id];
-        const upgradeB = upgrades[b.id];
+    if (upgrades.length <= 1) {
+        return upgrades;
+    }
 
+    // Sort upgrade objects by purchasability and priority
+    upgrades.sort(function (a, b) {
         // Check if upgrades are purchasable
         const purchasableA = haveUpgradeResources(a.id);
         const purchasableB = haveUpgradeResources(b.id);
@@ -845,8 +859,8 @@ function sortUpgradesByPriority(upgrades) {
         }
 
         // If both upgrades are purchasable, compare their priorities
-        const priorityA = upgradeA.priority;
-        const priorityB = upgradeB.priority;
+        const priorityA = a.priority;
+        const priorityB = b.priority;
 
         // Compare priorities
         return priorityA - priorityB;
@@ -855,11 +869,26 @@ function sortUpgradesByPriority(upgrades) {
     return upgrades;
 }
 
+function updateUpgradesContainer(sortedUpgrades) {
+    // Clear the existing upgrades
+    upgradesContainer.innerHTML = "";
+    let fragment = document.createDocumentFragment();
+
+    // Append sorted upgrade elements to document fragment
+    sortedUpgrades.forEach(function (upgradeElement) {
+        fragment.appendChild(upgradeElement);
+    });
+
+    // Append document fragment to upgrades container once
+    upgradesContainer.appendChild(fragment);
+}
+
 function resetUpgrades() {
     for (let upgrade in upgrades) {
         upgrades[upgrade].available = false
         upgrades[upgrade].purchased = false
         upgradesContainer.innerHTML = ""
+        upgradeElements = []
     }
 }
 
@@ -897,10 +926,14 @@ function checkUpgradesPurchaseAvailability() {
     for (let i = 0; i < upgradeDivs.length; i++) {
         let upgradeName = upgradeDivs[i].id
         if (haveUpgradeResources(upgradeName)) {
+            if (upgradeDivs[i].classList.contains("container-upgrade-item-unpurchasable")) {
+                updateUpgradesContainer(sortUpgradesByPriority(upgradeElements)); // Update when new upgrade is available
+            }
             upgradeDivs[i].classList.remove("container-upgrade-item-unpurchasable")
         } else {
             upgradeDivs[i].classList.add("container-upgrade-item-unpurchasable")
         }
+
     }
 }
 
