@@ -170,7 +170,7 @@ let upgrades = {
         "available": false,
         "purchased": false,
         "title": "Agricultural Waste Composting",
-        "cost": "1200 Crops",
+        "cost": "1.2k Crops",
         "costDictionary": {"poop": 0, "crops": 1200, "meat": 0, "mana": 0},
         "description": "x2 Crops per Second",
         "outcomeDictionary": {"cropMultiplier": 2},
@@ -180,7 +180,7 @@ let upgrades = {
         "available": false,
         "purchased": false,
         "title": "Protein Sufficiency",
-        "cost": "1000 Meat",
+        "cost": "1k Meat",
         "costDictionary": {"poop": 0, "crops": 0, "meat": 1000, "mana": 0},
         "description": "x2 Poop per Click",
         "outcomeDictionary": {"poopMultiplier": 2},
@@ -190,7 +190,7 @@ let upgrades = {
         "available": false,
         "purchased": false,
         "title": "Specialized Animal Feed",
-        "cost": "2000 Crops",
+        "cost": "2k Crops",
         "costDictionary": {"poop": 0, "crops": 2000, "meat": 0, "mana": 0},
         "description": "+1 Meat/second per Pasture",
         "outcomeDictionary": {"meatBaseProduction": 1},
@@ -200,7 +200,7 @@ let upgrades = {
         "available": false,
         "purchased": false,
         "title": "Balanced Diet",
-        "cost": "500 Meat, 1500 Crops",
+        "cost": "500 Meat, 1.5k Crops",
         "costDictionary": {"poop": 0, "crops": 1500, "meat": 500, "mana": 0},
         "description": "x2 Poop per Click",
         "outcomeDictionary": {"poopMultiplier": 2},
@@ -210,7 +210,7 @@ let upgrades = {
         "available": false,
         "purchased": false,
         "title": "Selective Breeding",
-        "cost": "4000 Crops",
+        "cost": "4k Crops",
         "costDictionary": {"poop": 0, "crops": 4000, "meat": 0, "mana": 0},
         "description": "x2 Meat per Pasture",
         "outcomeDictionary": {"meatMultiplier": 2},
@@ -230,27 +230,27 @@ let upgrades = {
         "available": false,
         "purchased": false,
         "title": "Nutrition Research",
-        "cost": "15000 Crops, 1500 Meat",
+        "cost": "15k Crops, 1.5k Meat",
         "costDictionary": {"poop": 0, "crops": 15000, "meat": 1500, "mana": 0},
         "description": "x2 Meat per Pasture",
         "outcomeDictionary": {"meatMultiplier": 2},
-        "priority": 11
+        "priority": 12
     },
     "upgradeHireFarmhands1": {
         "available": false,
         "purchased": false,
         "title": "Hire a Few Farmhands",
-        "cost": "10000 Crops, 1000 Meat",
+        "cost": "10k Crops, 1k Meat",
         "costDictionary": {"poop": 0, "crops": 10000, "meat": 1000, "mana": 0},
         "description": "x2 Farm and Pasture Production",
         "outcomeDictionary": {"cropMultiplier": 2, "meatMultiplier": 2},
-        "priority": 12
+        "priority": 11
     },
     "upgradeHireFarmhands2": {
         "available": false,
         "purchased": false,
         "title": "Hire More Farmhands",
-        "cost": "25000 Crops, 2500 Meat",
+        "cost": "25k Crops, 2.5k Meat",
         "costDictionary": {"poop": 0, "crops": 25000, "meat": 2500, "mana": 0},
         "description": "x2 Farm and Pasture Production",
         "outcomeDictionary": {"cropMultiplier": 2, "meatMultiplier": 2},
@@ -260,7 +260,7 @@ let upgrades = {
         "available": false,
         "purchased": false,
         "title": "Hire a Lot More Farmhands",
-        "cost": "100000 Crops, 10000 Meat",
+        "cost": "50k Crops, 10k Meat",
         "costDictionary": {"poop": 0, "crops": 50000, "meat": 5000, "mana": 0},
         "description": "x2 Farm and Pasture Production",
         "outcomeDictionary": {"cropMultiplier": 2, "meatMultiplier": 2},
@@ -274,7 +274,7 @@ let upgrades = {
         "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 0},
         "description": "x10 Poop per Click",
         "outcomeDictionary": {"poopMultiplier": 10},
-        "priority": 15
+        "priority": 0
     },
     "upgradeTelekinesis": {
         "available": false,
@@ -300,7 +300,7 @@ let upgrades = {
         "available": false,
         "purchased": false,
         "title": "Mana Facilitated Herding",
-        "cost": "1000 Mana",
+        "cost": "1k Mana",
         "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 1000},
         "description": "x2 Meat/second",
         "outcomeDictionary": {"meatMultiplier": 2},
@@ -314,7 +314,7 @@ let upgrades = {
         "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 0},
         "description": "x2 Crops Production",
         "outcomeDictionary": {"cropMultiplier": 2},
-        "priority": 19
+        "priority": 0
     },
     "upgradeProteinFortifiedFeed": {
         "available": false,
@@ -324,13 +324,13 @@ let upgrades = {
         "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 0},
         "description": "x2 Meat Production",
         "outcomeDictionary": {"meatMultiplier": 2},
-        "priority": 20
+        "priority": 0
     },
     "upgradeSoulmancy": {
         "available": false,
         "purchased": false,
         "title": "Soulmancy",
-        "cost": "2000 Mana",
+        "cost": "2k Mana",
         "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 2000},
         "description": "x2 Meat Production",
         "outcomeDictionary": {"meatMultiplier": 2},
@@ -344,13 +344,13 @@ let upgrades = {
         "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 0},
         "description": "x2 Crops Production",
         "outcomeDictionary": {"cropMultiplier": 2},
-        "priority": 22
+        "priority": 0
     },
     "upgradeDrakeEmberArmor": {
         "available": false,
         "purchased": false,
         "title": "Drake-ember Armor",
-        "cost": "20000 Mana",
+        "cost": "20k Mana",
         "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 20000},
         "description": "A Gleaming Symbol of Draconic Might",
         "outcomeDictionary": {},
@@ -360,7 +360,7 @@ let upgrades = {
         "available": false,
         "purchased": false,
         "title": "Mercenary Conscription",
-        "cost": "420000 Meat",
+        "cost": "420k Meat",
         "costDictionary": {"poop": 0, "crops": 0, "meat": 420000, "mana": 0},
         "description": "Rally Seasoned Fighters from Distant Lands",
         "outcomeDictionary": {},
@@ -370,8 +370,8 @@ let upgrades = {
         "available": false,
         "purchased": false,
         "title": "Stocked Granaries",
-        "cost": "4200000 Crops",
-        "costDictionary": {"poop": 0, "crops": 4200000, "meat": 0, "mana": 0},
+        "cost": "2M Crops",
+        "costDictionary": {"poop": 0, "crops": 2000000, "meat": 0, "mana": 0},
         "description": "Sustenance for the Impending Conflict",
         "outcomeDictionary": {},
         "priority": 25
@@ -669,11 +669,21 @@ function updateBuildingCounters() {
     dragonSizeCtr.innerText = `Size: ${dragonSize}`
 }
 
+function addValuePrefix(value) {
+    if (value >= 1000000) {
+        return `${(value / 1000000).toFixed(2)}M`
+    } else if (value >= 1000) {
+        return `${(value / 1000).toFixed(2)}K`
+    } else {
+        return value
+    }
+}
+
 function updateResourceCounters() {
-    poopResourceCounter.innerText = `Poop: ${poop}`
-    cropsResourceCounter.innerText = `Crops: ${crops}`
-    meatResourceCounter.innerText = `Meat: ${meat}`
-    manaResourceCounter.innerText = `Mana: ${mana}`
+    poopResourceCounter.innerText = `Poop: ${addValuePrefix(poop)}`
+    cropsResourceCounter.innerText = `Crops: ${addValuePrefix(crops)}`
+    meatResourceCounter.innerText = `Meat: ${addValuePrefix(meat)}`
+    manaResourceCounter.innerText = `Mana: ${addValuePrefix(mana)}`
 }
 
 function updateResourcePerSecondCounters() {
@@ -687,9 +697,9 @@ function updateResourcePerSecondCounters() {
 }
 
 function updateCostDisplay() {
-    farmBtn.innerText = `Buy for ${farmCost} Poop`
-    pastureBtn.innerText = `Buy for ${pastureCost} Crops`
-    dragonBtn.innerText = `Feed for ${dragonCost} Meat`
+    farmBtn.innerText = `Buy for ${addValuePrefix(farmCost)} Poop`
+    pastureBtn.innerText = `Buy for ${addValuePrefix(pastureCost)} Crops`
+    dragonBtn.innerText = `Feed for ${addValuePrefix(dragonCost)} Meat`
 }
 
 function comprehensiveUpdate() {
@@ -759,10 +769,14 @@ let dragonStages = [
     "Voracious appetite.",
     "Breathes a gorgeous blue flame.",
     "Enjoys sunbathing on the roof.",
-    "Its scales glisten like jewels in the light.",
-    "Can do back flips in the sky.",
-    "Majestic and fearsome, it's a sight to behold.",
-    "A legendary force to be reckoned with."
+    "Its scales glisten like star-touched jewels.",
+    "Can do backflips in the sky.",
+    "Its roars shake the very earth.",
+    "Majestic and fearsome; a sight to behold.",
+    "Cuts through air with supersonic speed.",
+    "Blue flames burn brighter than the sun.",
+    "A legendary force to be reckoned with.",
+    "The skies bow to its might."
 ]
 
 
@@ -934,19 +948,21 @@ function resetStats() {
 }
 
 function checkUpgradesPurchaseAvailability() {
+    let scheduleUpdate = false
     //check if each upgrade in the upgrade div is purchasable, if yes, remove container-upgrade-item-unpurchasable. else, add it back. Upgrades are in upgradeContainer
-    let upgradeDivs = upgradesContainer.childNodes
-    for (let i = 0; i < upgradeDivs.length; i++) {
-        let upgradeName = upgradeDivs[i].id
+    for (let i = 0; i < upgradeElements.length; i++) {
+        let upgradeName = upgradeElements[i].id
         if (haveUpgradeResources(upgradeName)) {
-            if (upgradeDivs[i].classList.contains("container-upgrade-item-unpurchasable")) {
-                updateUpgradesContainer(sortUpgradesByPriority(upgradeElements)); // Update when new upgrade is available
+            if (upgradeElements[i].classList.contains("container-upgrade-item-unpurchasable")) {
+                scheduleUpdate = true // Update when new upgrade is available
             }
-            upgradeDivs[i].classList.remove("container-upgrade-item-unpurchasable")
+            upgradeElements[i].classList.remove("container-upgrade-item-unpurchasable")
         } else {
-            upgradeDivs[i].classList.add("container-upgrade-item-unpurchasable")
+            upgradeElements[i].classList.add("container-upgrade-item-unpurchasable")
         }
-
+    }
+    if (scheduleUpdate) {
+        updateUpgradesContainer(sortUpgradesByPriority(upgradeElements))
     }
 }
 
