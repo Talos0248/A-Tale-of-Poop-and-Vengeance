@@ -133,7 +133,8 @@ let upgrades = {
         "cost": "40 Crops",
         "costDictionary": {"poop": 0, "crops": 40, "meat": 0, "mana": 0},
         "description": "x2 Poop per Click",
-        "outcomeDictionary": {"poopMultiplier": 2}
+        "outcomeDictionary": {"poopMultiplier": 2},
+        "priority": 1
     },
     "upgradeFieldPloughing": {
         "available": false,
@@ -142,7 +143,8 @@ let upgrades = {
         "cost": "250 Crops",
         "costDictionary": {"poop": 0, "crops": 250, "meat": 0, "mana": 0},
         "description": "+1 Crops/second per Farm, +1 Hoe-ing around",
-        "outcomeDictionary": {"cropsBaseProduction": 1}
+        "outcomeDictionary": {"cropsBaseProduction": 1},
+        "priority": 2
     },
     "upgradeBrownFingers": {
         "available": false,
@@ -151,7 +153,8 @@ let upgrades = {
         "cost": "400 Poop",
         "costDictionary": {"poop": 400, "crops": 0, "meat": 0, "mana": 0},
         "description": "+2 Crops/second per Farm",
-        "outcomeDictionary": {"cropsBaseProduction": 2}
+        "outcomeDictionary": {"cropsBaseProduction": 2},
+        "priority": 3
     },
     "upgradeFibrePackedDiet": {
         "available": false,
@@ -160,7 +163,8 @@ let upgrades = {
         "cost": "400 Crops",
         "costDictionary": {"poop": 0, "crops": 400, "meat": 0, "mana": 0},
         "description": "x2 Poop per Click, Smoother Bowel Movements",
-        "outcomeDictionary": {"poopMultiplier": 2}
+        "outcomeDictionary": {"poopMultiplier": 2},
+        "priority": 4
     },
     "upgradeAgriculturalWasteComposting": {
         "available": false,
@@ -169,7 +173,8 @@ let upgrades = {
         "cost": "1200 Crops",
         "costDictionary": {"poop": 0, "crops": 1200, "meat": 0, "mana": 0},
         "description": "x2 Crops per Second",
-        "outcomeDictionary": {"cropMultiplier": 2}
+        "outcomeDictionary": {"cropMultiplier": 2},
+        "priority": 5
     },
     "upgradeProteinSufficiency": {
         "available": false,
@@ -178,7 +183,8 @@ let upgrades = {
         "cost": "1000 Meat",
         "costDictionary": {"poop": 0, "crops": 0, "meat": 1000, "mana": 0},
         "description": "x2 Poop per Click",
-        "outcomeDictionary": {"poopMultiplier": 2}
+        "outcomeDictionary": {"poopMultiplier": 2},
+        "priority": 6
     },
     "upgradeSpecializedAnimalFeed": {
         "available": false,
@@ -187,7 +193,8 @@ let upgrades = {
         "cost": "2000 Crops",
         "costDictionary": {"poop": 0, "crops": 2000, "meat": 0, "mana": 0},
         "description": "+1 Meat/second per Pasture",
-        "outcomeDictionary": {"meatBaseProduction": 1}
+        "outcomeDictionary": {"meatBaseProduction": 1},
+        "priority": 7
     },
     "upgradeBalancedDiet": {
         "available": false,
@@ -196,7 +203,8 @@ let upgrades = {
         "cost": "500 Meat, 1500 Crops",
         "costDictionary": {"poop": 0, "crops": 1500, "meat": 500, "mana": 0},
         "description": "x2 Poop per Click",
-        "outcomeDictionary": {"poopMultiplier": 2}
+        "outcomeDictionary": {"poopMultiplier": 2},
+        "priority": 8
     },
     "upgradeSelectiveBreeding": {
         "available": false,
@@ -205,7 +213,8 @@ let upgrades = {
         "cost": "4000 Crops",
         "costDictionary": {"poop": 0, "crops": 4000, "meat": 0, "mana": 0},
         "description": "x2 Meat per Pasture",
-        "outcomeDictionary": {"meatMultiplier": 2}
+        "outcomeDictionary": {"meatMultiplier": 2},
+        "priority": 9
     },
     "upgradeWildergrazeManure": {
         "available": false,
@@ -214,7 +223,8 @@ let upgrades = {
         "cost": "250 Meat",
         "costDictionary": {"poop": 0, "crops": 0, "meat": 250, "mana": 0},
         "description": "x2 Crops per Farm",
-        "outcomeDictionary": {"cropsBaseProduction": 2}
+        "outcomeDictionary": {"cropsBaseProduction": 2},
+        "priority": 10
     },
     "upgradeNutritionResearch": {
         "available": false,
@@ -223,7 +233,8 @@ let upgrades = {
         "cost": "15000 Crops, 1500 Meat",
         "costDictionary": {"poop": 0, "crops": 15000, "meat": 1500, "mana": 0},
         "description": "x2 Meat per Pasture",
-        "outcomeDictionary": {"meatMultiplier": 2}
+        "outcomeDictionary": {"meatMultiplier": 2},
+        "priority": 11
     },
     "upgradeHireFarmhands1": {
         "available": false,
@@ -232,7 +243,8 @@ let upgrades = {
         "cost": "10000 Crops, 1000 Meat",
         "costDictionary": {"poop": 0, "crops": 10000, "meat": 1000, "mana": 0},
         "description": "x2 Farm and Pasture Production",
-        "outcomeDictionary": {"cropMultiplier": 2, "meatMultiplier": 2}
+        "outcomeDictionary": {"cropMultiplier": 2, "meatMultiplier": 2},
+        "priority": 12
     },
     "upgradeHireFarmhands2": {
         "available": false,
@@ -241,7 +253,8 @@ let upgrades = {
         "cost": "25000 Crops, 2500 Meat",
         "costDictionary": {"poop": 0, "crops": 25000, "meat": 2500, "mana": 0},
         "description": "x2 Farm and Pasture Production",
-        "outcomeDictionary": {"cropMultiplier": 2, "meatMultiplier": 2}
+        "outcomeDictionary": {"cropMultiplier": 2, "meatMultiplier": 2},
+        "priority": 13
     },
     "upgradeHireFarmhands3": {
         "available": false,
@@ -250,7 +263,8 @@ let upgrades = {
         "cost": "100000 Crops, 10000 Meat",
         "costDictionary": {"poop": 0, "crops": 50000, "meat": 5000, "mana": 0},
         "description": "x2 Farm and Pasture Production",
-        "outcomeDictionary": {"cropMultiplier": 2, "meatMultiplier": 2}
+        "outcomeDictionary": {"cropMultiplier": 2, "meatMultiplier": 2},
+        "priority": 14
     },
     "upgradeMuscleMemory": {
         "available": false,
@@ -259,7 +273,8 @@ let upgrades = {
         "cost": "Is There Nothing Left...?",
         "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 0},
         "description": "x10 Poop per Click",
-        "outcomeDictionary": {"poopMultiplier": 10}
+        "outcomeDictionary": {"poopMultiplier": 10},
+        "priority": 15
     },
     "upgradeTelekinesis": {
         "available": false,
@@ -268,7 +283,8 @@ let upgrades = {
         "cost": "200 Mana",
         "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 200},
         "description": "x4 Poop per Click",
-        "outcomeDictionary": {"poopMultiplier": 4}
+        "outcomeDictionary": {"poopMultiplier": 4},
+        "priority": 16
     },
     "upgradeManaFueledGrowth": {
         "available": false,
@@ -277,7 +293,8 @@ let upgrades = {
         "cost": "500 Mana",
         "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 500},
         "description": "x2 Crops Production",
-        "outcomeDictionary": {"cropMultiplier": 2}
+        "outcomeDictionary": {"cropMultiplier": 2},
+        "priority": 17
     },
     "upgradeManaFacilitatedHerding": {
         "available": false,
@@ -286,7 +303,8 @@ let upgrades = {
         "cost": "1000 Mana",
         "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 1000},
         "description": "x2 Meat/second",
-        "outcomeDictionary": {"meatMultiplier": 2}
+        "outcomeDictionary": {"meatMultiplier": 2},
+        "priority": 18
     },
     "upgradeBoneFertilizer": {
         "available": false,
@@ -295,7 +313,8 @@ let upgrades = {
         "cost": "Bones",
         "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 0},
         "description": "x2 Crops Production",
-        "outcomeDictionary": {"cropMultiplier": 2}
+        "outcomeDictionary": {"cropMultiplier": 2},
+        "priority": 19
     },
     "upgradeProteinFortifiedFeed": {
         "available": false,
@@ -304,7 +323,8 @@ let upgrades = {
         "cost": "Flesh",
         "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 0},
         "description": "x2 Meat Production",
-        "outcomeDictionary": {"meatMultiplier": 2}
+        "outcomeDictionary": {"meatMultiplier": 2},
+        "priority": 20
     },
     "upgradeSoulmancy": {
         "available": false,
@@ -313,7 +333,8 @@ let upgrades = {
         "cost": "2000 Mana",
         "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 2000},
         "description": "x2 Meat Production",
-        "outcomeDictionary": {"meatMultiplier": 2}
+        "outcomeDictionary": {"meatMultiplier": 2},
+        "priority": 21
     },
     "upgradeCorpseComposting": {
         "available": false,
@@ -322,7 +343,8 @@ let upgrades = {
         "cost": "More Flesh",
         "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 0},
         "description": "x2 Crops Production",
-        "outcomeDictionary": {"cropMultiplier": 2}
+        "outcomeDictionary": {"cropMultiplier": 2},
+        "priority": 22
     },
     "upgradeDrakeEmberArmor": {
         "available": false,
@@ -331,7 +353,8 @@ let upgrades = {
         "cost": "20000 Mana",
         "costDictionary": {"poop": 0, "crops": 0, "meat": 0, "mana": 20000},
         "description": "A Gleaming Symbol of Draconic Might",
-        "outcomeDictionary": {}
+        "outcomeDictionary": {},
+        "priority": 23
     },
     "upgradeMercenaryConscription": {
         "available": false,
@@ -340,7 +363,8 @@ let upgrades = {
         "cost": "420000 Meat",
         "costDictionary": {"poop": 0, "crops": 0, "meat": 420000, "mana": 0},
         "description": "Rally Seasoned Fighters from Distant Lands",
-        "outcomeDictionary": {}
+        "outcomeDictionary": {},
+        "priority": 24
     },
     "upgradeStockedGranaries": {
         "available": false,
@@ -349,9 +373,10 @@ let upgrades = {
         "cost": "4200000 Crops",
         "costDictionary": {"poop": 0, "crops": 4200000, "meat": 0, "mana": 0},
         "description": "Sustenance for the Impending Conflict",
-        "outcomeDictionary": {}
+        "outcomeDictionary": {},
+        "priority": 25
     }
-}
+};
 
 //Interactive Elements
 const poopPanel = document.getElementById("panel-poop")
@@ -778,6 +803,7 @@ function displayUpgrade(upgradeName, optionalStyleClass = "") {
     // }
 }
 
+
 function haveUpgradeResources(upgradeName) {
     let upgrade = upgrades[upgradeName]
     return poop >= upgrade.costDictionary["poop"] &&
@@ -800,6 +826,33 @@ function markUpgradePurchase(upgradeName) {
     updateResourcePerSecondCounters()
     let element = document.getElementById(upgradeName);
     upgradesContainer.removeChild(element);
+}
+
+function sortUpgradesByPriority(upgrades) {
+    // Sort upgrade elements by purchasability and priority
+    upgrades.sort(function (a, b) {
+        // Extract upgrade objects from the upgrades container
+        const upgradeA = upgrades[a.id];
+        const upgradeB = upgrades[b.id];
+
+        // Check if upgrades are purchasable
+        const purchasableA = haveUpgradeResources(a.id);
+        const purchasableB = haveUpgradeResources(b.id);
+
+        // Compare purchasability
+        if (purchasableA !== purchasableB) {
+            return purchasableB - purchasableA; // Sort by purchasability (purchasable first)
+        }
+
+        // If both upgrades are purchasable, compare their priorities
+        const priorityA = upgradeA.priority;
+        const priorityB = upgradeB.priority;
+
+        // Compare priorities
+        return priorityA - priorityB;
+    });
+
+    return upgrades;
 }
 
 function resetUpgrades() {

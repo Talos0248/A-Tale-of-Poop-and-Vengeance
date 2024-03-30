@@ -227,7 +227,7 @@ img, picture, svg, video {
 
 .container-resource-storage {
     grid-template-columns: 1fr 1fr;
-    margin-top: 20px;
+    margin-top: 40px;
     column-gap: 50px;
     row-gap: 8px;
     margin-left: 40px;
@@ -252,15 +252,20 @@ img, picture, svg, video {
     height: 250px;
 }
 
+.container-upgrades, .view-available-btn, .view-purchased-btn {
+    background-color: rgba(255, 241, 213, 0.48);
+    border: 2px solid rgba(130, 96, 52, 0.2);
+}
+
 .container-upgrades {
-    height: 600px;
+    height: 560px;
     overflow-y: auto;
+    border-bottom: none;
 }
 
 .upgrades-header {
     font-size: 24px;
     font-family: "Courier New", sans-serif;
-    margin-top: 30px;
     margin-bottom: 10px;
 }
 
@@ -281,6 +286,27 @@ img, picture, svg, video {
 .container-upgrade-item-danger {
     background-color: #f8c9c9;
     border: 2px solid #8B0000;
+}
+
+.upgrade-btn-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.view-available-btn, .view-purchased-btn {
+    width: 500%;
+    height: 40px;
+    margin: 0;
+    border-top: none;
+    font-family: "Courier New", sans-serif;
+    font-size: 1em;
+    font-weight: 900;
+}
+
+.upgrade-btn-inactive {
+    background-color: #f8ecc9;
+    border: 2px solid #a08768;
+    font-weight: normal;
 }
 
 /*ALERT PANEL*/
