@@ -463,20 +463,6 @@ let dragonCost = 1;
 let upgradeElements = [];
 
 //Functions
-//UNUSED? Forgot what these were for lol
-// function enableButtons() {
-//     poopBtn.disabled = false
-//     farmBtn.disabled = false
-//     pastureBtn.disabled = false
-//     dragonBtn.disabled = false
-// }
-//
-// function disableButtons() {
-//     poopBtn.disabled = true
-//     farmBtn.disabled = true
-//     pastureBtn.disabled = true
-//     dragonBtn.disabled = true
-// }
 
 function enablePurchaseButtons() {
     farmBtn.disabled = farms >= farmCost
