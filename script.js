@@ -467,6 +467,8 @@ let dragonCost = 1;
 
 let upgradeElements = [];
 
+loadGame()
+
 //Functions
 
 function enablePurchaseButtons() {
@@ -1113,6 +1115,117 @@ endingButton.addEventListener("click", () => {
     endingPopup.classList.add("hidden");
     comprehensiveUpdate()
 })
+
+function saveGame() {
+    let gameData = {
+        "poop": poop,
+        "poopMultiplier": poopMultiplier,
+        "poopPerClick": poopPerClick,
+        "poopPerSecond": poopPerSecond,
+        "farms": farms,
+        "crops": crops,
+        "cropsBaseProduction": cropsBaseProduction,
+        "cropMultiplier": cropMultiplier,
+        "cropsPerSecond": cropsPerSecond,
+        "pastures": pastures,
+        "meat": meat,
+        "meatBaseProduction": meatBaseProduction,
+        "meatMultiplier": meatMultiplier,
+        "meatPerSecond": meatPerSecond,
+        "dragonSize": dragonSize,
+        "mana": mana,
+        "manaBaseProduction": manaBaseProduction,
+        "manaMultiplier": manaMultiplier,
+        "manaPerSecond": manaPerSecond,
+        "farmCost": farmCost,
+        "pastureCost": pastureCost,
+        "dragonCost": dragonCost,
+        "upgrades": upgrades,
+        "stories": stories,
+        "currentStory": currentStory,
+        "currentUpgrades": upgradeElements,
+        "panelsVisbiility": {
+            "poopPanel": !poopPanel.classList.contains("hidden"),
+            "farmPanel": !farmPanel.classList.contains("hidden"),
+            "pasturePanel": !pasturePanel.classList.contains("hidden"),
+            "dragonPanel": !dragonPanel.classList.contains("hidden")
+        }
+    }
+
+    localStorage.setItem("gameData", JSON.stringify(gameData))
+}
+
+function restorePanelsVisibility() {
+    let gameData = JSON.parse(localStorage.getItem("gameData"))
+    if (gameData) {
+        if (gameData.panelsVisbiility["poopPanel"]) {
+            poopPanel.classList.remove("hidden")
+        }
+        if (gameData.panelsVisbiility["farmPanel"]) {
+            farmPanel.classList.remove("hidden")
+            poopPanel.classList.add("col-span-2")
+        }
+        if (gameData.panelsVisbiility["pasturePanel"]) {
+            pasturePanel.classList.remove("hidden")
+        }
+        if (gameData.panelsVisbiility["dragonPanel"]) {
+            dragonPanel.classList.remove("hidden")
+            pasturePanel.classList.add("col-span-2")
+        }
+    }
+}
+
+function restorePurchaseUpgrades() {
+    let gameData = JSON.parse(localStorage.getItem("gameData"))
+    if (gameData) {
+        for (let upgrade in gameData.upgrades) {
+            if (gameData.upgrades[upgrade].purchased) {
+                addUpgradesToPurchasedContainer(upgrade)
+            }
+        }
+    }
+}
+
+function loadGame() {
+
+    let gameData = JSON.parse(localStorage.getItem("gameData"))
+    if (gameData) {
+        poop = gameData.poop
+        poopMultiplier = gameData.poopMultiplier
+        poopPerClick = gameData.poopPerClick
+        poopPerSecond = gameData.poopPerSecond
+        farms = gameData.farms
+        crops = gameData.crops
+        cropsBaseProduction = gameData.cropsBaseProduction
+        cropMultiplier = gameData.cropMultiplier
+        cropsPerSecond = gameData.cropsPerSecond
+        pastures = gameData.pastures
+        meat = gameData.meat
+        meatBaseProduction = gameData.meatBaseProduction
+        meatMultiplier = gameData.meatMultiplier
+        meatPerSecond = gameData.meatPerSecond
+        dragonSize = gameData.dragonSize
+        mana = gameData.mana
+        manaBaseProduction = gameData.manaBaseProduction
+        manaMultiplier = gameData.manaMultiplier
+        manaPerSecond = gameData.manaPerSecond
+        farmCost = gameData.farmCost
+        pastureCost = gameData.pastureCost
+        dragonCost = gameData.dragonCost
+        upgrades = gameData.upgrades
+        stories = gameData.stories
+        currentStory = gameData.currentStory
+        upgradeElements = gameData.currentUpgrades
+        restorePanelsVisibility()
+        comprehensiveUpdate()
+        triggerStories()
+    }
+}
+
+function resetGame() {
+    localStorage.removeItem("gameData")
+    location.reload()
+}
 
 // SET INTERVAL LOOP
 setInterval(() => {
