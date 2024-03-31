@@ -378,6 +378,29 @@ let upgrades = {
     }
 };
 
+let dragonStages = [
+    "It's but a wee hatchling.",
+    "Watch your fingers, it's teething.",
+    "Loves to snuggle up in hats.",
+    "Its roars are tiny squeaks.",
+    "Loves playing with its shadows.",
+    "Keeps your home rat-free.",
+    "Portable living lighter.",
+    "Sprouting the Tiniest of Wings.",
+    "Voracious appetite.",
+    "Breathes a gorgeous blue flame.",
+    "Enjoys sunbathing on the roof.",
+    "Its scales glisten like star-touched jewels.",
+    "Can do backflips in the sky.",
+    "Its roars shake the very earth.",
+    "Majestic and fearsome; a sight to behold.",
+    "Cuts through air with supersonic speed.",
+    "Blue flames burn brighter than the sun.",
+    "A legendary force to be reckoned with.",
+    "The skies bow to its might."
+]
+
+
 //Interactive Elements
 const poopPanel = document.getElementById("panel-poop")
 const farmPanel = document.getElementById("panel-farm")
@@ -466,6 +489,10 @@ let pastureCost = 100;
 let dragonCost = 1;
 
 let upgradeElements = [];
+let autoSaveInterval = 5; //seconds
+let autoSaveTimer = 0;
+
+loadGame()
 
 //Functions
 
@@ -757,30 +784,8 @@ dragonBtn.addEventListener("click", () => {
     }
 })
 
-let dragonStages = [
-    "It's but a wee hatchling.",
-    "Watch your fingers, it's teething.",
-    "Loves to snuggle up in hats.",
-    "Its roars are tiny squeaks.",
-    "Loves playing with its shadows.",
-    "Keeps your home rat-free.",
-    "Portable living lighter.",
-    "Sprouting the Tiniest of Wings.",
-    "Voracious appetite.",
-    "Breathes a gorgeous blue flame.",
-    "Enjoys sunbathing on the roof.",
-    "Its scales glisten like star-touched jewels.",
-    "Can do backflips in the sky.",
-    "Its roars shake the very earth.",
-    "Majestic and fearsome; a sight to behold.",
-    "Cuts through air with supersonic speed.",
-    "Blue flames burn brighter than the sun.",
-    "A legendary force to be reckoned with.",
-    "The skies bow to its might."
-]
 
-
-let updateDragonDescription = () => {
+function updateDragonDescription() {
     if (dragonSize < dragonStages.length) {
         dragonDescription.innerText = dragonStages[dragonSize - 1]
     } else {
@@ -788,7 +793,7 @@ let updateDragonDescription = () => {
     }
 }
 
-let updateDragonImageAndTitle = () => {
+function updateDragonImageAndTitle() {
     if (dragonSize >= 15) {
         dragonTitle.innerText = "Dragon"
         dragonIcon.src = "./src/dragon-3.svg"
@@ -815,6 +820,7 @@ viewAvailableBtn.addEventListener("click", () => {
 })
 
 function displayUpgrade(upgradeName, optionalStyleClass = "") {
+    upgrades[upgradeName].available = true;
     let upgradeDiv = document.createElement('div');
     upgradeDiv.className = 'container-upgrade-item container-upgrade-item-unpurchasable';
     if (optionalStyleClass !== "") {
@@ -857,6 +863,7 @@ function markUpgradePurchase(upgradeName) {
         return;
     }
 
+    upgrades[upgradeName].available = false;
     upgrades[upgradeName].purchased = true;
     updateResourceCounters()
     updateResourcePerSecondCounters()
@@ -1114,6 +1121,138 @@ endingButton.addEventListener("click", () => {
     comprehensiveUpdate()
 })
 
+// SAVEGAME FUNCTION, INCLUDE CURRENT UPGRADE AND STORY STATES
+function saveGame() {
+    let save = {
+        "poop": poop,
+        "poopMultiplier": poopMultiplier,
+        "poopPerClick": poopPerClick,
+        "poopPerSecond": poopPerSecond,
+        "farms": farms,
+        "crops": crops,
+        "cropsBaseProduction": cropsBaseProduction,
+        "cropMultiplier": cropMultiplier,
+        "cropsPerSecond": cropsPerSecond,
+        "pastures": pastures,
+        "meat": meat,
+        "meatBaseProduction": meatBaseProduction,
+        "meatMultiplier": meatMultiplier,
+        "meatPerSecond": meatPerSecond,
+        "dragonSize": dragonSize,
+        "mana": mana,
+        "manaBaseProduction": manaBaseProduction,
+        "manaMultiplier": manaMultiplier,
+        "manaPerSecond": manaPerSecond,
+        "farmCost": farmCost,
+        "pastureCost": pastureCost,
+        "dragonCost": dragonCost,
+        "upgrades": upgrades,
+        "stories": stories,
+        "currentStory": currentStory,
+        "paused": paused,
+        "panelUnlockStates": {
+            "farmPanel": !farmPanel.classList.contains("hidden"),
+            "pasturePanel": !pasturePanel.classList.contains("hidden"),
+            "dragonPanel": !dragonPanel.classList.contains("hidden"),
+            "cropsCounter": !cropsCounterContainer.classList.contains("hidden"),
+            "meatCounter": !meatCounterContainer.classList.contains("hidden"),
+            "manaCounter": !manaCounterContainer.classList.contains("hidden"),
+            "farmDescription": farmDescription.innerText
+        }
+    }
+    localStorage.setItem("save", JSON.stringify(save));
+}
+
+// LOADGAME FUNCTION
+function loadGame() {
+    let save = JSON.parse(localStorage.getItem("save"));
+    if (save) {
+        poop = save.poop
+        poopMultiplier = save.poopMultiplier
+        poopPerClick = save.poopPerClick
+        poopPerSecond = save.poopPerSecond
+        farms = save.farms
+        crops = save.crops
+        cropsBaseProduction = save.cropsBaseProduction
+        cropMultiplier = save.cropMultiplier
+        cropsPerSecond = save.cropsPerSecond
+        pastures = save.pastures
+        meat = save.meat
+        meatBaseProduction = save.meatBaseProduction
+        meatMultiplier = save.meatMultiplier
+        meatPerSecond = save.meatPerSecond
+        dragonSize = save.dragonSize
+        mana = save.mana
+        manaBaseProduction = save.manaBaseProduction
+        manaMultiplier = save.manaMultiplier
+        manaPerSecond = save.manaPerSecond
+        farmCost = save.farmCost
+        pastureCost = save.pastureCost
+        dragonCost = save.dragonCost
+        upgrades = save.upgrades
+        stories = save.stories
+        currentStory = save.currentStory
+        panelUnlockStates = save.panelUnlockStates
+
+        restoreGame()
+        updatePanelsOnLoad(panelUnlockStates)
+        updateDragonDescription()
+        updateDragonImageAndTitle()
+    }
+}
+
+function restoreGame() {
+    comprehensiveUpdate()
+    for (let upgrade in upgrades) {
+        if (upgrades[upgrade].available) {
+            displayUpgrade(upgrade)
+        }
+        if (upgrades[upgrade].purchased) {
+            addUpgradesToPurchasedContainer(upgrades[upgrade])
+        }
+    }
+    checkUpgradesPurchaseAvailability()
+    triggerStories()
+}
+
+function updatePanelsOnLoad(panelUnlockStates) {
+    if (panelUnlockStates.farmPanel) {
+        farmPanel.classList.remove("hidden")
+        poopPanel.classList.remove("col-span-2")
+    }
+    if (panelUnlockStates.pasturePanel) {
+        pasturePanel.classList.remove("hidden")
+    }
+    if (panelUnlockStates.dragonPanel) {
+        dragonPanel.classList.remove("hidden")
+        pasturePanel.classList.remove("col-span-2")
+    }
+    if (panelUnlockStates.cropsCounter) {
+        cropsCounterContainer.classList.remove("hidden")
+    }
+    if (panelUnlockStates.meatCounter) {
+        meatCounterContainer.classList.remove("hidden")
+    }
+    if (panelUnlockStates.manaCounter) {
+        manaCounterContainer.classList.remove("hidden")
+    }
+    farmDescription.innerText = panelUnlockStates.farmDescription
+}
+
+function resetGame() {
+    localStorage.removeItem("save");
+    location.reload()
+}
+
+function autoSaveCheck() {
+    autoSaveTimer++;
+    if (autoSaveTimer >= autoSaveInterval) {
+        saveGame();
+        autoSaveTimer = 0;
+    }
+}
+
+
 // SET INTERVAL LOOP
 setInterval(() => {
     if (!paused) {
@@ -1128,5 +1267,6 @@ setInterval(() => {
         addPerSecondResources()
         updateResourceCounters()
         checkUpgradesPurchaseAvailability()
+        autoSaveCheck()
     }
 }, 1000)
