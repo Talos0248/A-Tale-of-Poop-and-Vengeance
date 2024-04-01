@@ -35,6 +35,10 @@ img, picture, svg, video {
 
 /*CUSTOM CSS STARTS HERE*/
 /*UTILITY CLASSES*/
+.flex {
+    display: flex;
+}
+
 .grid {
     display: grid;
 }
@@ -55,14 +59,14 @@ img, picture, svg, video {
 
 /*BUTTON HOVERS*/
 .alert-btn:hover, .resource-btn:hover, .container-upgrade-item:hover, .ending-btn:hover,
-.btn-view-available:hover, .btn-view-purchased:hover {
+.btn-view-available:hover, .btn-view-purchased:hover, .responsive-btn:hover, .collapsible-arrow:hover {
     filter: brightness(90%);
     cursor: pointer;
 }
 
 /*BUTTON CLICKS*/
 .alert-btn:active, .resource-btn:active, .container-upgrade-item:active .ending-btn:active,
-.btn-view-available:active, .btn-view-purchased:active {
+.btn-view-available:active, .btn-view-purchased:active, .responsive-btn:active, .collapsible-arrow:active {
     filter: brightness(80%);
 }
 
@@ -73,6 +77,54 @@ img, picture, svg, video {
 }
 
 /*PROJECT STYLING*/
+/*SAVE, RESET, GITHUB*/
+.container-btn-collapsible {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    justify-content: space-between;
+    margin: 20px 40px;
+}
+
+.collapsible-arrow {
+    width: 24px;
+}
+
+.collapsed-arrow {
+    transform: rotate(-180deg);
+}
+
+.container-btn-collapsible-contents {
+    margin: 10px;
+}
+
+.btn-collapsible {
+    width: 60px;
+    height: 24px;
+    border-radius: 16px;
+    border: none;
+    font-size: 14px;
+}
+
+.btn-save {
+    background-color: #006400;
+    color: #D6F1C6;
+}
+
+.btn-reset {
+    background-color: #8B0000;
+    color: #ffd1d1;
+}
+
+.btn-github {
+    background-color: #203887;
+}
+
+.btn-github a {
+    color: azure;
+    text-decoration: none;
+}
+
 /*MAIN CONTAINER*/
 .main {
     grid-template-columns: 3fr 2fr;

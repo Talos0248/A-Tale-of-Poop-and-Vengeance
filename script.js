@@ -402,6 +402,13 @@ let dragonStages = [
 
 
 //Interactive Elements
+const collapsibleArrow = document.getElementById("collapsible-arrow")
+const collapsibleButtonContainerContents = document.getElementById("container-btn-collapsible-contents")
+const saveButton = document.getElementById("btn-save")
+const resetButton = document.getElementById("btn-reset")
+const githubButton = document.getElementById("btn-github")
+
+
 const poopPanel = document.getElementById("panel-poop")
 const farmPanel = document.getElementById("panel-farm")
 const pasturePanel = document.getElementById("panel-pasture")
@@ -458,6 +465,7 @@ const dragonColor = "#203887"
 const dangerColor = "#EE4B2B"
 
 //Game Variables
+let resetClicks = 0
 let currentStory = null
 let paused = false
 
@@ -495,7 +503,45 @@ let autoSaveTimer = 0;
 loadGame()
 
 //Functions
+//Collapsible Div
+collapsibleArrow.addEventListener("click", function () {
+    collapsibleButtonContainerContents.classList.toggle("hidden")
+    if (collapsibleButtonContainerContents.classList.contains("hidden")) {
+        collapsibleArrow.classList.remove("collapsed-arrow")
+    } else {
+        collapsibleArrow.classList.add("collapsed-arrow")
+    }
+})
 
+saveButton.addEventListener("click", function () {
+    saveGame()
+    saveButton.innerText = "Saved!"
+    setTimeout(function () {
+        saveButton.innerText = "Save"
+    }, 1000)
+})
+
+resetButton.addEventListener("click", function () {
+    //Change text to Sure? Then Really? Then reset the game each click. Revert to original text after 3 seconds.
+    resetClicks++
+    if (resetClicks === 1) {
+        resetButton.innerText = "Sure?"
+    } else if (resetClicks === 2) {
+        resetButton.innerText = "Really?"
+    } else if (resetClicks === 3) {
+        resetGame()
+        resetButton.innerText = "Reset"
+        resetClicks = 0
+    }
+
+    setTimeout(function () {
+        resetButton.innerText = "Reset"
+        resetClicks = 0
+    }, 3000)
+})
+
+
+//MISC
 function enablePurchaseButtons() {
     farmBtn.disabled = farms >= farmCost
     pastureBtn.disabled = pastures >= pastureCost

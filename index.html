@@ -22,10 +22,15 @@
         A Tale of <span class="text-poop">Poop</span> and <span class="text-vengeance">Vengeance</span>
     </h1>
 </header>
-<div class="grid container-btns">
-    <button class="btn-start" id="btn-start">Save</button>
-    <button class="btn-reset" id="btn-reset">Reset</button>
-    <button class="btn-github" id="btn-github">GitHub</button>
+<div class="flex container-btn-collapsible no-select" id="container-btn-collapsible">
+    <img src="src/left-arrow.svg" alt="Collapse" class="collapsible-arrow" id="collapsible-arrow">
+    <div class="container-btn-collapsible-contents hidden" id="container-btn-collapsible-contents">
+        <button class="btn-collapsible btn-save responsive-btn" id="btn-save">Save</button>
+        <button class="btn-collapsible btn-reset responsive-btn" id="btn-reset">Reset</button>
+        <button class="btn-collapsible btn-github responsive-btn" id="btn-github"><a
+                href="https://github.com/Talos0248/A-Tale-of-Poop-and-Vengeance" target="_blank">GitHub</a></button>
+    </div>
+
 </div>
 <main class="grid main no-select">
 
