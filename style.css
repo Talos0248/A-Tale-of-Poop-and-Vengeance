@@ -84,6 +84,7 @@ img, picture, svg, video {
     right: 8%;
     justify-content: space-between;
     margin: 20px 40px;
+    flex-grow: 0;
 }
 
 .collapsible-arrow {
@@ -171,7 +172,7 @@ img, picture, svg, video {
 /*PANELS*/
 
 .container-resource-panels {
-    height: max(500px, 70%);
+    /*height: max(500px, 70%);*/
     grid-template-columns: 1fr 1fr;
     /*column-gap: 2em;*/
     /*row-gap: 2em;*/
@@ -180,19 +181,19 @@ img, picture, svg, video {
 }
 
 .resource-panel {
-    width: 375px;
-    height: 240px;
+    width: 90%;
+    /*height: 240px;*/
     position: relative; /* For positioning the counter at the bottom right*/
     border-radius: 25px;
     box-shadow: 8px 8px 4px rgba(0, 0, 0, 20%);
     text-align: center;
     margin: 10px 20px;
-    padding: 10px;
+    padding: 10px 10px 2px;
 }
 
 .resource-title {
     font-size: 24px;
-    height: 30px;
+    min-height: 30px;
 }
 
 .resource-btn {
@@ -207,11 +208,12 @@ img, picture, svg, video {
 }
 
 .resource-counter {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
+    /*position: absolute;*/
+    /*bottom: 5px;*/
+    /*right: 5px;*/
     font-size: 12px;
     text-align: right;
+    margin-top: 4px;
     margin-right: 20px;
 }
 
@@ -302,7 +304,7 @@ img, picture, svg, video {
 
 .container-resource-storage {
     grid-template-columns: 1fr 1fr;
-    margin-top: 40px;
+    margin-top: 16px;
     column-gap: 50px;
     row-gap: 8px;
     margin-left: 40px;
@@ -613,4 +615,120 @@ html {
 
 .cool-scrollbar-purchased::-webkit-scrollbar-thumb {
     background-color: #60ba60;
+}
+
+/*MEDIA QUERIES*/
+@media only screen and (max-width: 1250px) {
+    .title {
+        padding-bottom: 0;
+    }
+
+    .resource-title {
+        min-height: 0;
+        font-size: 20px;
+    }
+
+    .resource-icon {
+        width: 42px;
+    }
+
+    .resource-btn {
+        height: 28px;
+    }
+
+    .container-btn-collapsible {
+        position: static; /* Change from absolute to static */
+        margin: auto; /* Center the container horizontally */
+        width: fit-content; /* Set the width to fit its contents */
+        max-width: 50%; /* Set a maximum width to prevent it from occupying the full width */
+        justify-content: center; /* Center the items horizontally */
+    }
+
+    .collapsible-arrow {
+        display: none;
+    }
+
+    .container-btn-collapsible-contents {
+        display: block;
+    }
+
+    .container-upgrades, .container-upgrades-purchased {
+        height: 500px;
+    }
+
+}
+
+@media only screen and (max-width: 1000px) {
+    .main {
+        grid-template-columns: 1fr;
+    }
+
+    .resource-description {
+        margin-bottom: 10px;
+    }
+
+    .container-upgrades, .container-upgrades-purchased {
+        height: 480px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .container-upgrades, .container-upgrades-purchased {
+        height: 320px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .container-btn-collapsible-contents {
+        display: block;
+    }
+
+    .resource-icon {
+        display: none;
+        margin: 0;
+    }
+
+    .upgrade-item-title {
+        font-size: 13px;
+    }
+
+    .upgrade-item-description, .upgrade-item-cost {
+        font-size: 12px;
+    }
+
+    .container-upgrades, .container-upgrades-purchased {
+        height: 200px;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+
+    .container-resource-panels {
+        grid-template-columns: 1fr;
+    }
+
+    .resource-description {
+        font-size: 14px;
+    }
+
+    .container-resource-storage {
+        margin-bottom: 20px;
+        margin-left: 2%;
+        font-size: 12px;
+    }
+
+    .resource-name {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 380px) {
+    .btn-collapsible {
+        width: 42px;
+    }
 }

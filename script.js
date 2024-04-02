@@ -875,9 +875,9 @@ function displayUpgrade(upgradeName, optionalStyleClass = "") {
     upgradeDiv.id = upgradeName;
     upgradeDiv.priority = upgrades[upgradeName].priority;
     upgradeDiv.innerHTML = `
-            <h3>${upgrades[upgradeName].title}</h3>
-            <p>${upgrades[upgradeName].description}</p>
-            <p><i>Cost: ${upgrades[upgradeName].cost}</i></p>`;
+            <h3 class="upgrade-item-title">${upgrades[upgradeName].title}</h3>
+            <p class="upgrade-item-description">${upgrades[upgradeName].description}</p>
+            <p class="upgrade-item-cost"><i>Cost: ${upgrades[upgradeName].cost}</i></p>`;
     upgradeDiv.onclick = function () {
         purchaseUpgrade(upgradeName);
     };
@@ -1019,13 +1019,13 @@ function checkUpgradesPurchaseAvailability() {
     }
 }
 
-function addUpgradesToPurchasedContainer(upgrade) {
+function addUpgradesToPurchasedContainer(upgradeName) {
     let upgradeDiv = document.createElement('div');
     upgradeDiv.className = 'container-upgrade-item container-upgrade-item-purchased';
     upgradeDiv.innerHTML = `
-            <h3>${upgrade.title}</h3>
-            <p>${upgrade.description}</p>
-            <p><i>Cost: ${upgrade.cost}</i></p>`;
+            <h3 class="upgrade-item-title">${upgrades[upgradeName].title}</h3>
+            <p class="upgrade-item-description">${upgrades[upgradeName].description}</p>
+            <p class="upgrade-item-cost"><i>Cost: ${upgrades[upgradeName].cost}</i></p>`;
     upgradesPurchasedContainer.appendChild(upgradeDiv);
 }
 
