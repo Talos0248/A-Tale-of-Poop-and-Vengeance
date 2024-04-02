@@ -668,15 +668,13 @@ html {
     }
 
     .container-upgrades, .container-upgrades-purchased {
-        height: 480px;
+        height: 200px;
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
 
-    .container-upgrades, .container-upgrades-purchased {
-        height: 320px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+    .container-upgrade-item {
+        height: fit-content;
     }
 
     .hidden {
@@ -700,8 +698,25 @@ html {
         font-size: 12px;
     }
 
-    .container-upgrades, .container-upgrades-purchased {
-        height: 200px;
+    .container-resource-panels {
+        min-height: 0;
+    }
+
+    .alert-title {
+        font-size: 20px;
+    }
+
+    .alert-content {
+        font-size: 14px;
+    }
+
+    .alert-btn-title {
+        font-size: 16px;
+    }
+
+    .alert-btn-description {
+        font-size: 12px;
+
     }
 
 }
@@ -710,7 +725,6 @@ html {
 
     .container-resource-panels {
         grid-template-columns: 1fr;
-        min-height: 0;
     }
 
     .resource-description {

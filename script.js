@@ -132,8 +132,8 @@ let upgrades = {
         "title": "Sugar Rush",
         "cost": "40 Crops",
         "costDictionary": {"poop": 0, "crops": 40, "meat": 0, "mana": 0},
-        "description": "x2 Poop per Click",
-        "outcomeDictionary": {"poopMultiplier": 2},
+        "description": "x4 Poop per Click",
+        "outcomeDictionary": {"poopMultiplier": 4},
         "priority": 1
     },
     "upgradeFieldPloughing": {
@@ -875,9 +875,9 @@ function displayUpgrade(upgradeName, optionalStyleClass = "") {
     upgradeDiv.id = upgradeName;
     upgradeDiv.priority = upgrades[upgradeName].priority;
     upgradeDiv.innerHTML = `
-            <h3>${upgrades[upgradeName].title}</h3>
-            <p>${upgrades[upgradeName].description}</p>
-            <p><i>Cost: ${upgrades[upgradeName].cost}</i></p>`;
+            <h3 class="upgrade-item-title">${upgrades[upgradeName].title}</h3>
+            <p class="upgrade-item-description">${upgrades[upgradeName].description}</p>
+            <p class="upgrade-item-cost"><i>Cost: ${upgrades[upgradeName].cost}</i></p>`;
     upgradeDiv.onclick = function () {
         purchaseUpgrade(upgradeName);
     };
@@ -1023,9 +1023,9 @@ function addUpgradesToPurchasedContainer(upgrade) {
     let upgradeDiv = document.createElement('div');
     upgradeDiv.className = 'container-upgrade-item container-upgrade-item-purchased';
     upgradeDiv.innerHTML = `
-            <h3>${upgrade.title}</h3>
-            <p>${upgrade.description}</p>
-            <p><i>Cost: ${upgrade.cost}</i></p>`;
+            <h3 class="upgrade-item-title">${upgrade.title}</h3>
+            <p class="upgrade-item-description">${upgrade.description}</p>
+            <p class="upgrade-item-cost"><i>Cost: ${upgrade.cost}</i></p>`;
     upgradesPurchasedContainer.appendChild(upgradeDiv);
 }
 
