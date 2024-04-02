@@ -726,6 +726,18 @@ html {
     .resource-name {
         font-size: 15px;
     }
+
+    .ending-paragraph {
+        font-size: 14px;
+    }
+
+    .ending-header {
+        font-size: 28px;
+    }
+
+    .ending-content {
+        padding: 0 10px;
+    }
 }
 
 @media only screen and (max-width: 380px) {

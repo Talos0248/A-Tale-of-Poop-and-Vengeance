@@ -1135,6 +1135,7 @@ function triggerEnding() {
                 p.style.fontStyle = "italic";
             } else if (paragraph["type"] === "punchline" || paragraph["type"] === "title") {
                 p.classList.add("text-vengeance");
+                p.classList.add("ending-header");
                 p.style.textAlign = "center";
 
             } else if (paragraph["type"] === "footer") {
